@@ -461,7 +461,7 @@ const Home = () => {
           <Col md={6} className="mb-4 mb-md-0">
             <div className="rounded overflow-hidden shadow-sm">
               <img
-                src="/img/about-us.jpg"
+                src="/img/bg.png"
                 alt="About Us"
                 className="img-fluid w-100"
                 style={{ borderRadius: '15px', objectFit: 'cover', height: '100%' }}
@@ -476,7 +476,7 @@ const Home = () => {
               Creating Walls That Speak <br /> With Personality & Art
             </h2>
             <p className="text-muted mb-4" style={{ fontSize: '1.1rem' }}>
-              At Peps Wall, we’re passionate about transforming your spaces with high-quality, curated wallpaper collections. 
+              At Orient Wall, we’re passionate about transforming your spaces with high-quality, curated wallpaper collections. 
               From dreamy kid’s rooms to bold, modern styles — every design is a reflection of personality, mood, and creativity.
             </p>
             <p className="text-muted mb-4" style={{ fontSize: '1rem' }}>
