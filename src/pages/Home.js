@@ -455,7 +455,7 @@ const Home = () => {
         </Container>
       </section>
 <TestimonialSection />
- <section className="py-5 bg-light">
+ <section className="py-5 mb-4">
       <Container>
         <Row className="align-items-center">
           {/* Left: Image */}
@@ -472,7 +472,7 @@ const Home = () => {
 
           {/* Right: Text */}
           <Col md={6}>
-            <p className="text-uppercase text-primary fw-semibold small mb-2">About Us</p>
+            <p className="text-uppercase fw-semibold small mb-2">About Us</p>
             <h2 className="fw-bold mb-3">
               Creating Walls That Speak <br /> With Personality & Art
             </h2>
