@@ -36,14 +36,15 @@ const Navbar = () => {
         <BootstrapNavbar.Collapse>
           <Nav className="me-auto" style={{ marginLeft: '70px' }}>
             <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/wallpaper">Wallpaper</Nav.Link>
             <NavDropdown title="Collections" id="collections-dropdown">
-              <NavDropdown.Item as={Link} to="/collections/modern">Modern</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/collections/classic">Classic</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/collections/office">Office</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/collections/residential">Residential</NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown title="Colors" id="colors-dropdown">
+            {/* <NavDropdown title="Colors" id="colors-dropdown">
               <NavDropdown.Item as={Link} to="/colors/warm">Warm</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/colors/cool">Cool</NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
             <Nav.Link as={Link} to="/kids">Kids</Nav.Link>
             <NavDropdown title="More" id="more-dropdown">
               <NavDropdown.Item as={Link} to="/about">About</NavDropdown.Item>
@@ -54,7 +55,11 @@ const Navbar = () => {
             <Nav.Link><FiSearch /></Nav.Link>
             <Nav.Link><FiUser /></Nav.Link>
             <Nav.Link><FiShoppingBag /></Nav.Link>
-            <Button variant="dark" className="ms-2 rounded-pill px-4 py-2">Book a free visit</Button>
+            <a href="https://wa.me/971524248060" target="_blank" rel="noopener noreferrer">
+              <Button variant="dark" className="ms-2 rounded-pill px-4 py-2">
+                Book a free visit
+              </Button>
+            </a>
           </Nav>
         </BootstrapNavbar.Collapse>
       </BootstrapNavbar>

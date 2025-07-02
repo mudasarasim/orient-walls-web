@@ -45,10 +45,11 @@ const Home = () => {
                 A seamless process, stunning results: Let us <br />{' '}
                 <span style={{ textAlign: 'left' }}>elevate your interior.</span>
               </p>
-              <Button variant="danger" className="rounded-pill px-5 py-2" style={{ border: '2px solid white' }}>
-                Schedule a Free Home Visit &nbsp; →
-              </Button>
-
+              <a href="https://wa.me/971524248060" target="_blank" rel="noopener noreferrer">
+                <Button variant="danger" className="rounded-pill px-5 py-2" style={{ border: '2px solid white' }}>
+                  Schedule a Free Home Visit &nbsp; →
+                </Button>
+              </a>
               <div className="mt-3 text-white small">
                 <img src="img/google.png" alt="stars" style={{ height: '18px', marginRight: '5px' }} />
                 <FaStar className="text-warning" />
