@@ -5,7 +5,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: '#0b0b0b', color: '#ccc', paddingTop: '60px', paddingBottom: '30px' }}>
+    <footer style={{ backgroundColor: '#0b0b0b', color: '#ccc', paddingTop: '60px', paddingBottom: '30px', }}>
       <Container>
         <Row className="gy-4">
           {/* Logo & About */}
@@ -14,14 +14,14 @@ const Footer = () => {
             <p style={{ fontSize: '0.95rem', lineHeight: '1.6' }}>
               Explore premium wallpaper collections that elevate every space — from playful kids’ rooms to elegant modern interiors.
             </p>
-            <div className="d-flex gap-3 mt-3">
+            {/* <div className="d-flex gap-3 mt-3">
               <a href="#" className="text-white fs-5"><FaFacebookF /></a>
               <a href="#" className="text-white fs-5"><FaInstagram /></a>
               <a href="#" className="text-white fs-5"><FaTwitter /></a>
               <a href="#" className="text-white fs-5"><FaLinkedinIn /></a>
-            </div>
+            </div> */}
           </Col>
-
+          
           {/* Quick Links */}
           <Col md={2}>
             <h6 className="text-white fw-semibold mb-3">Quick Links</h6>
@@ -39,22 +39,21 @@ const Footer = () => {
             <ul className="list-unstyled text-light small">
               <li className="mb-2">
                 <FaMapMarkerAlt className="me-2 text-danger" />
-                boulevard plaza tower 2 Office 2201 downtown Dubai, U.A.E
+                Office 2201, Boulevard Plaza Tower-2, Downtown Dubai, U.A.E
               </li>
               <li className="mb-2">
                 <FaPhoneAlt className="me-2 text-danger" />
-                +971 524248060
+                +971-52-424-8060
               </li>
                <li className="mb-2">
                 <FaEnvelope className="me-2 text-danger" />
                 info@orientwall.com
               </li>
-          
             </ul>
           </Col>
 
           {/* Newsletter Signup */}
-          <Col md={4}>
+          {/* <Col md={4}>
             <h6 className="text-white fw-semibold mb-3">Join Our Newsletter</h6>
             <p className="small text-light">Get the latest updates on new collections and exclusive offers.</p>
             <Form className="d-flex">
@@ -71,7 +70,7 @@ const Footer = () => {
                 Subscribe
               </Button>
             </Form>
-          </Col>
+          </Col> */}
         </Row>
 
         <hr className="mt-5" style={{ borderColor: '#333' }} />
