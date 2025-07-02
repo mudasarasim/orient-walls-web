@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Row, Col } from 'react-bootstrap';
 import { FaWhatsapp, FaStar, FaTrophy } from 'react-icons/fa';
 import './Home.css';
+import TestimonialSection from '../components/TestimonialSection';
 
 const kidsDesigns = [
   { title: 'Safari Art Dream', price: '125.00Dhs/sqm', image: 'k1.jpg' },
@@ -453,7 +454,7 @@ const Home = () => {
           </div>
         </Container>
       </section>
-
+<TestimonialSection />
  <section className="py-5 bg-light">
       <Container>
         <Row className="align-items-center">
@@ -489,6 +490,7 @@ const Home = () => {
         </Row>
       </Container>
     </section>
+
 
       {/* WhatsApp Floating Button */}
       <a href="https://wa.me/971524248060" target='blank' className="position-fixed bottom-0 end-0 m-4" style={{ zIndex: 1050 }}>
