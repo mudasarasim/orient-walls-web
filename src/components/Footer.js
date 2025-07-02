@@ -1,59 +1,76 @@
-// components/Footer.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 
-const Footer = () => (
-  <footer className="bg-white text-dark pt-5">
-    <div className="container-fluid" style={{ marginTop: '50px' }}>
-      <div className="row px-5">
-        <div className="col-md-5">
-          <img src="img/logo.png" height="160" className="mb-2 pl-5" alt="Logo" /><br />
-          <p className='text-center' style={{ width: '290px' }}>
-            Alkiswa.com is an online travel platform managed by Delight Express Tourism LLC...
-          </p>
+const Footer = () => {
+  return (
+    <footer style={{ backgroundColor: '#0b0b0b', color: '#ccc', paddingTop: '60px', paddingBottom: '30px' }}>
+      <Container>
+        <Row className="gy-4">
+          {/* Logo & About */}
+          <Col md={4}>
+            <h4 className="text-white fw-bold mb-3">ORIENT WALLS</h4>
+            <p style={{ fontSize: '0.95rem', lineHeight: '1.6' }}>
+              Explore premium wallpaper collections that elevate every space — from playful kids’ rooms to elegant modern interiors.
+            </p>
+            <div className="d-flex gap-3 mt-3">
+              <a href="#" className="text-white fs-5"><FaFacebookF /></a>
+              <a href="#" className="text-white fs-5"><FaInstagram /></a>
+              <a href="#" className="text-white fs-5"><FaTwitter /></a>
+              <a href="#" className="text-white fs-5"><FaLinkedinIn /></a>
+            </div>
+          </Col>
+
+          {/* Quick Links */}
+          <Col md={2}>
+            <h6 className="text-white fw-semibold mb-3">Quick Links</h6>
+            <ul className="list-unstyled">
+              <li><a href="#" className="text-decoration-none text-light">Home</a></li>
+              <li><a href="#" className="text-decoration-none text-light">Collections</a></li>
+              <li><a href="#" className="text-decoration-none text-light">About Us</a></li>
+              <li><a href="#" className="text-decoration-none text-light">Contact</a></li>
+            </ul>
+          </Col>
+
+          {/* Support Links */}
+          <Col md={2}>
+            <h6 className="text-white fw-semibold mb-3">Support</h6>
+            <ul className="list-unstyled">
+              <li><a href="#" className="text-decoration-none text-light ">FAQs</a></li>
+              <li><a href="#" className="text-decoration-none text-light">Shipping</a></li>
+              <li><a href="#" className="text-decoration-none text-light">Returns</a></li>
+              <li><a href="#" className="text-decoration-none text-light">Privacy Policy</a></li>
+            </ul>
+          </Col>
+
+          {/* Newsletter Signup */}
+          <Col md={4}>
+            <h6 className="text-white fw-semibold mb-3">Join Our Newsletter</h6>
+            <p className="small text-light">Get the latest updates on new collections and exclusive offers.</p>
+            <Form className="d-flex">
+              <Form.Control
+                type="email"
+                placeholder="Enter your email"
+                className="rounded-start-pill border-0"
+              />
+              <Button
+                variant="danger"
+                className="rounded-end-pill px-4"
+                style={{ backgroundColor: '#e71c64', border: 'none' }}
+              >
+                Subscribe
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+
+        <hr className="mt-5" style={{ borderColor: '#333' }} />
+        <div className="text-center small text-light">
+          © {new Date().getFullYear()} Orient Wallpapers. All Rights Reserved.
         </div>
-
-        <div className='col-md-1 d-none d-sm-block'>
-          <div style={{ height: '300px', width: '3px', background: '#ffc107' }}></div>
-        </div>
-
-        <div className="col-md-5 d-flex justify-content-around">
-          <ul className="list-unstyled">
-            <li style={{ marginBottom: '10px', fontSize: '20px' }} className='text-primary'>
-              <strong>Quick Link</strong>
-            </li>
-            <li><Link to="/" style={linkStyle}>Home</Link></li>
-            <li><Link to="/about" style={linkStyle}>About Us</Link></li>
-            <li><Link to="/services" style={linkStyle}>Services</Link></li>
-            <li><Link to="/holidays" style={linkStyle}>Holidays</Link></li>
-          </ul>
-
-          <ul className="list-unstyled">
-            <li><br /></li>
-            <li><Link to="/contact" style={linkStyle}>Contact Us</Link></li>
-            <li><Link to="/privacy-policy" style={linkStyle}>Privacy Policy</Link></li>
-            <li><Link to="/terms-and-conditions" style={linkStyle}>Terms & Conditions</Link></li>
-            <li><Link to="/faq" style={linkStyle}>FAQ</Link></li>
-          </ul>
-        </div>
-      </div>
-
-      <hr />
-
-      <div className="text-center py-3 bg-warning">
-        <strong>Contact Us</strong><br />
-        📍 Rolla Building - Shop No 8 Ground Floor Al Arouba St Sharjah UAE<br />
-        📞 +971 6 7044002 | ✉️ <a href="mailto:support@alkiswa.com">support@alkiswa.com</a>
-      </div>
-    </div>
-  </footer>
-);
-
-const linkStyle = {
-  fontSize: '20px',
-  textDecoration: 'none',
-  color: 'black',
-  marginTop: '10px'
+      </Container>
+    </footer>
+  );
 };
 
 export default Footer;

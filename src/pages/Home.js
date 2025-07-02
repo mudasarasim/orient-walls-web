@@ -1,162 +1,500 @@
-import React, { useState } from 'react';
-import mm from '../assets/mm.png';
-import bg from '../assets/bg.jpg';
-import burj from '../assets/burj.png';
-import wild from '../assets/wild.png';
-import at from '../assets/at.png';
-import { Link, useNavigate } from 'react-router-dom';
+// src/pages/Home.js
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Button, Row, Col } from 'react-bootstrap';
+import { FaWhatsapp, FaStar, FaTrophy } from 'react-icons/fa';
+import './Home.css';
+
+const kidsDesigns = [
+  { title: 'Safari Art Dream', price: '125.00Dhs/sqm', image: 'k1.jpg' },
+  { title: 'Safari Landscape', price: '125.00Dhs/sqm', image: 'k2.png' },
+  { title: 'Goal!', price: '125.00Dhs/sqm', image: 'k3.png' },
+  { title: 'Teddy on clouds', price: '125.00Dhs/sqm', image: 'k4.png' },
+  { title: 'Wonderland', price: '125.00Dhs/sqm', image: 'k5.png' },
+  { title: 'Fairy Spring', price: '125.00Dhs/sqm', image: 'k6.png' },
+  { title: 'Explorer Map', price: '125.00Dhs/sqm', image: 'k7.png' },
+  { title: 'Party in a Jungle', price: '125.00Dhs/sqm', image: 'k8.png' },
+  { title: 'Meredith', price: '125.00Dhs/sqm', image: 'k9.png' },
+  { title: 'Wonder Castle', price: '125.00Dhs/sqm', image: 'k10.png' },
+  { title: 'Spring Castle', price: '125.00Dhs/sqm', image: 'k11.png' },
+  { title: 'Whimsy Birds - Blue', price: '125.00Dhs/sqm', image: 'k12.png' },
+];
 
 const Home = () => {
-  const [form, setForm] = useState({
-    from: '',
-    to: '',
-    departureDate: '',
-    returnDate: '',
-    travelClass: 'ECONOMY',
-    adults: '1',
-  });
-
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // ✅ convert data into query string
-    const queryParams = new URLSearchParams({
-      from: form.from,
-      to: form.to,
-      departureDate: form.departureDate,
-      returnDate: form.returnDate,
-      cabin: form.travelClass,
-      adults: form.adults,
-    }).toString();
-
-    navigate(`/flights?${queryParams}`);
-  };
-
   return (
-    <>
-      <section
-        className="hero bg-light"
-        style={{ background: `url(${bg}) no-repeat center/cover`, padding: '100px 20px' }}
+    <div>
+      {/* Hero Section */}
+      <div
+        className="hero-section text-white d-flex align-items-center"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 10%, rgba(0,0,0,0.9) 100%), url("img/bg.png")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          minHeight: '82vh',
+          position: 'relative',
+        }}
       >
-        <div className="container bg-white bg-opacity-75 p-4 rounded shadow-sm">
-          <ul className="nav nav-tabs mb-4">
-            <li className="nav-item">
-              <Link to={'/'} className="nav-link active text-warning">Flight</Link>
-            </li>
-            <li className="nav-item">
-              <Link to={'/hotel'} className="nav-link">Hotel</Link>
-            </li>
-            <li className="nav-item">
-              <Link to={'/visa'} className="nav-link">Visa</Link>
-            </li>
-            <li className="nav-item">
-              <Link to={'/Umrah'} className="nav-link">Umrah</Link>
-            </li>
-          </ul>
+        <Container>
+          <div className="row" style={{ marginTop: '150px' }}>
+            <div className="col-md-6 mb-4">
+              <h1 className="fw-bold fs-1">Transform Your Home in One Visit!</h1>
+            </div>
+            <div className="col-md-6 text-md-end">
+              <p className="fs-5 mb-3">
+                A seamless process, stunning results: Let us <br />{' '}
+                <span style={{ textAlign: 'left' }}>elevate your interior.</span>
+              </p>
+              <Button variant="danger" className="rounded-pill px-5 py-2" style={{ border: '2px solid white' }}>
+                Schedule a Free Home Visit &nbsp; →
+              </Button>
 
-          <form className="row g-3" onSubmit={handleSubmit}>
-            <div className="col-md-2">
-              <label className="form-label fw-bold">From</label>
-              <input type="text" name="from" className="form-control" placeholder="From (e.g. ISB)" onChange={handleChange} required />
+              <div className="mt-3 text-white small">
+                <img src="img/google.png" alt="stars" style={{ height: '18px', marginRight: '5px' }} />
+                <FaStar className="text-warning" />
+                <FaStar className="text-warning" />
+                <FaStar className="text-warning" />
+                <FaStar className="text-warning" />
+                <FaStar className="text-warning" /> &nbsp;
+                <a href="#" className="text-decoration-underline text-white">
+                  +5 000 happy clients
+                </a>
+                <br />
+                <FaTrophy /> #1 wallpaper company -{' '}
+                <a href="#" className="text-white text-decoration-underline">
+                  Khaleej Times
+                </a>
+              </div>
             </div>
-            <div className="col-md-2">
-              <label className="form-label fw-bold">To</label>
-              <input type="text" name="to" className="form-control" placeholder="To (e.g. DXB)" onChange={handleChange} required />
+          </div>
+        </Container>
+      </div>
+
+      {/* 4 Simple Steps Section */}
+      <Container className="text-center my-5">
+        <p className="text-uppercase text-muted small">How it works?</p>
+        <h2 className="fw-bold mb-5">4 simple steps</h2>
+        <div className="row">
+          {/* Step 1 */}
+          <div className="col-md-3">
+            <img src="img/first.png" alt="Step 1" className="img-fluid border" />
+            <div className="mt-3">
+              <div className="fw-bold mb-1"><span className="badge bg-dark rounded-circle me-2">1</span>Browse our designs and select your favorite.</div>
+              <p className="text-muted small">Or we can also customize for you.</p>
             </div>
-            <div className="col-md-2">
-              <label className="form-label fw-bold">Departure</label>
-              <input type="date" name="departureDate" className="form-control" onChange={handleChange} required />
+          </div>
+          {/* Step 2 */}
+          <div className="col-md-3">
+            <img src="img/second.png" alt="Step 2" className="img-fluid border" />
+            <div className="mt-3">
+              <div className="fw-bold mb-1"><span className="badge bg-dark rounded-circle me-2">2</span>Book a free visit in Dubai directly in few seconds</div>
+              <p className="text-muted small">Our specialist will come to take measurements & help you choose your design.</p>
             </div>
-            <div className="col-md-2">
-              <label className="form-label fw-bold">Return</label>
-              <input type="date" name="returnDate" className="form-control" onChange={handleChange} />
+          </div>
+          {/* Step 3 */}
+          <div className="col-md-3">
+            <img src="img/third.png" alt="Step 3" className="img-fluid border" />
+            <div className="mt-3">
+              <div className="fw-bold mb-1"><span className="badge bg-dark rounded-circle me-2">3</span>Get your quotation and confirm order</div>
+              <p className="text-muted small">Our consultant will show our designs & share a quotation on the spot.</p>
             </div>
-            <div className="col-md-2">
-              <label className="form-label fw-bold">Cabin</label>
-              <select name="travelClass" className="form-select" onChange={handleChange}>
-                <option value="ECONOMY">Economy</option>
-                <option value="BUSINESS">Business</option>
-              </select>
+          </div>
+          {/* Step 4 */}
+          <div className="col-md-3">
+            <img src="img/fourth.png" alt="Step 4" className="img-fluid border" />
+            <div className="mt-3">
+              <div className="fw-bold mb-1"><span className="badge bg-dark rounded-circle me-2">4</span>We typically install <br /> in 3 to 7 days</div>
+              <p className="text-muted small">We take care of everything. <br /> You just enjoy.</p>
             </div>
-            <div className="col-md-2">
-              <label className="form-label fw-bold">Passenger</label>
-              <select name="adults" className="form-select" onChange={handleChange}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-              </select>
-            </div>
-            <div className="col-md-1 d-grid">
-              <button type="submit" className="btn btn-warning text-white fw-bold">GO</button>
-            </div>
-          </form>
+          </div>
         </div>
+      </Container>
+
+       <section className="py-5">
+        <Container>
+          <p className="text-uppercase text-center text-muted small mb-2">Trending Now</p>
+          <h2 className="text-center fw-semibold mb-5">Our exclusive kids designs</h2>
+
+          <Row className="g-4">
+            {kidsDesigns.map((item, index) => (
+              <Col xs={6} md={3} key={index}>
+                <div className="text-center">
+                  <div className="rounded shadow-sm overflow-hidden">
+                    <img
+                      src={`/img/${item.image}`}
+                      alt={item.title}
+                      className="img-fluid"
+                      style={{ objectFit: 'cover', width: '100%', height: '230px' }}
+                    />
+                  </div>
+                  <div className="mt-2">
+                    <div className="fw-medium">{item.title}</div>
+                    <div className="text-muted small">{item.price}</div>
+                  </div>
+                </div>
+              </Col>
+            ))}
+          </Row>
+
+          <div className="text-center mt-5">
+            <Button
+              variant="dark"
+              style={{
+                borderRadius: '20px',
+                padding: '10px 25px',
+                fontSize: '14px',
+                fontWeight: '500',
+              }}
+            >
+              View More
+            </Button>
+          </div>
+        </Container>
       </section>
 
-      {/* Remaining sections stay unchanged */}
 
-      <section className="text-center my-5">
-        <h2 className="text-warning fw-bold">BEST OF THE HOLIDAY</h2>
-        <p className="text-muted">Breathtaking ideas on how to make your holiday a memorable one</p>
-        <div id="holidayCarousel" className="carousel slide container" data-bs-ride="carousel">
-          <div className="carousel-inner">
-            {[0, 1].map(index => (
-              <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
-                <div className="row">
-                  {[1, 2, 3].map((_, i) => (
-                    <div className="col-md-4" key={i}>
-                      <img src={mm} className="img-fluid rounded" alt="holiday" />
-                      <p><a href="#" className='text-warning mt-2'>CHECK DETAILS ➔</a></p>
-                    </div>
-                  ))}
+      {/* Wallpaper Collections Section */}
+      <Container className="my-5">
+        <h2 className="fw-bold text-center mb-4">Explore Our Collections</h2>
+        <div className="row">
+          {/* Left Column */}
+          <div className="col-md-6">
+            {/* La Touche Originale */}
+            <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection1.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '420px' }}>
+              <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0))' }}>
+                <div className="d-flex justify-content-between align-items-end">
+                  <div style={{ width: '60%' }}>
+                    <h4 className="fw-bold mb-1">La Touche Originale</h4>
+                    <p className="mb-0 fs-6">Discover our new collection, in partnership with French Studio La Touche Originale & 20 designers</p>
+                  </div>
+                  <div style={{ width: '40%' }} className="text-end">
+                    <Button size="sm" variant="light" className="rounded-pill">Show more →</Button>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#holidayCarousel" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon"></span>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#holidayCarousel" data-bs-slide="next">
-            <span className="carousel-control-next-icon"></span>
-          </button>
-        </div>
-      </section>
-
-      <section className="bg-light py-5">
-        <div className="container text-center">
-          <h2 className="text-warning fw-bold">NEWS & UPDATES</h2>
-          <p className="text-muted">Book 450+ Airlines, Hotels, Visa, Cruise, Meet and Assist, and More</p>
-          <div className="row g-3">
-            {[{ img: burj, title: "Burj Khalifa At The Top" }, { img: wild, title: "Wild Wadi Water Park" }, { img: at, title: "Atlantis Waterpark" }].map((item, i) => (
-              <div className="col-md-4" key={i}>
-                <img src={item.img} className="img-fluid rounded" alt={item.title} />
-                <p className="mt-2"><strong>{item.title}</strong></p>
-                <a href="#" className='text-warning'>Check Details ➔</a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="text-center my-5">
-        <div className="container d-flex flex-column flex-md-row justify-content-around text-white">
-          {[
-            { icon: 'clock', title: 'Save Time', desc: 'Research and book online.' },
-            { icon: 'headset', title: '24/7 Support', desc: 'We’re online and ready to support.' },
-            { icon: 'lock', title: 'Secure Payment', desc: 'We provide secure payment systems.' }
-          ].map((item, i) => (
-            <div className="bg-warning p-4 rounded mb-3 mb-md-0" key={i}>
-              <i className={`fas fa-${item.icon} me-2`}></i><strong>{item.title}</strong><br />{item.desc}
             </div>
-          ))}
+
+            {/* Abstract */}
+            <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection3.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '250px' }}>
+              <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))' }}>
+                <div className="d-flex justify-content-between align-items-end">
+                  <div style={{ width: '60%' }}>
+                    <h5 className="fw-bold mb-1">Abstract</h5>
+                    <p className="mb-0 fs-6">Spark imagination with our Abstract Collection</p>
+                  </div>
+                  <div style={{ width: '40%' }} className="text-end">
+                    <Button size="sm" variant="light" className="rounded-pill">Show more →</Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Modern Touch */}
+            <div className="position-relative text-white mb-4" style={{ backgroundImage: 'url("img/collection5.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '250px' }}>
+              <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))' }}>
+                <div className="d-flex justify-content-between align-items-end">
+                  <div style={{ width: '60%' }}>
+                    <h5 className="fw-bold mb-1">Modern touch</h5>
+                    <p className="mb-0 fs-6">Elevate your living room with a modern touch!</p>
+                  </div>
+                  <div style={{ width: '40%' }} className="text-end">
+                    <Button size="sm" variant="light" className="rounded-pill">Show more →</Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div className="col-md-6">
+            {/* Floral */}
+            <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection2.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '250px' }}>
+              <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))' }}>
+                <div className="d-flex justify-content-between align-items-end">
+                  <div style={{ width: '60%' }}>
+                    <h5 className="fw-bold mb-1">Floral</h5>
+                    <p className="mb-0 fs-6">Drift into serenity with floral & calming designs</p>
+                  </div>
+                  <div style={{ width: '40%' }} className="text-end">
+                    <Button size="sm" variant="light" className="rounded-pill">Show more →</Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Kids Creations */}
+            <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection4.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '420px' }}>
+              <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))' }}>
+                <div className="d-flex justify-content-between align-items-end">
+                  <div style={{ width: '60%' }}>
+                    <h5 className="fw-bold mb-1">Kids creations</h5>
+                    <p className="mb-0 fs-6">Stunning designs creating a heaven for your little ones.</p>
+                  </div>
+                  <div style={{ width: '40%' }} className="text-end">
+                    <Button size="sm" variant="light" className="rounded-pill">Show more →</Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Natural Vibes */}
+            <div className="position-relative text-white" style={{ backgroundImage: 'url("img/collection6.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '250px' }}>
+              <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))' }}>
+                <div className="d-flex justify-content-between align-items-end">
+                  <div style={{ width: '60%' }}>
+                    <h5 className="fw-bold mb-1">Natural vibes</h5>
+                    <p className="mb-0 fs-6">Drift into serenity with our wallpaper inspired by nature</p>
+                  </div>
+                  <div style={{ width: '40%' }} className="text-end">
+                    <Button size="sm" variant="light" className="rounded-pill">Show more →</Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </Container>
+ <section className="py-5">
+        <Container>
+          <p className="text-uppercase text-center text-muted small mb-2">Trending Now</p>
+          <h2 className="text-center fw-semibold mb-5">Our exclusive kids designs</h2>
+
+          <Row className="g-4">
+            {kidsDesigns.map((item, index) => (
+              <Col xs={6} md={3} key={index}>
+                <div className="text-center">
+                  <div className="rounded shadow-sm overflow-hidden">
+                    <img
+                      src={`/img/${item.image}`}
+                      alt={item.title}
+                      className="img-fluid"
+                      style={{ objectFit: 'cover', width: '100%', height: '230px' }}
+                    />
+                  </div>
+                  <div className="mt-2">
+                    <div className="fw-medium">{item.title}</div>
+                    <div className="text-muted small">{item.price}</div>
+                  </div>
+                </div>
+              </Col>
+            ))}
+          </Row>
+
+          <div className="text-center mt-5">
+            <Button
+              variant="dark"
+              style={{
+                borderRadius: '20px',
+                padding: '10px 25px',
+                fontSize: '14px',
+                fontWeight: '500',
+              }}
+            >
+              View More
+            </Button>
+          </div>
+        </Container>
       </section>
-    </>
+ <section className="py-5">
+        <Container>
+          <p className="text-uppercase text-center text-muted small mb-2">Trending Now</p>
+          <h2 className="text-center fw-semibold mb-5">Our exclusive kids designs</h2>
+
+          <Row className="g-4">
+            {kidsDesigns.map((item, index) => (
+              <Col xs={6} md={3} key={index}>
+                <div className="text-center">
+                  <div className="rounded shadow-sm overflow-hidden">
+                    <img
+                      src={`/img/${item.image}`}
+                      alt={item.title}
+                      className="img-fluid"
+                      style={{ objectFit: 'cover', width: '100%', height: '230px' }}
+                    />
+                  </div>
+                  <div className="mt-2">
+                    <div className="fw-medium">{item.title}</div>
+                    <div className="text-muted small">{item.price}</div>
+                  </div>
+                </div>
+              </Col>
+            ))}
+          </Row>
+
+          <div className="text-center mt-5">
+            <Button
+              variant="dark"
+              style={{
+                borderRadius: '20px',
+                padding: '10px 25px',
+                fontSize: '14px',
+                fontWeight: '500',
+              }}
+            >
+              View More
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      <div
+        style={{
+          backgroundColor: '#000',
+          color: '#fff',
+          backgroundImage: 'url("img/bg2.jpg")', // Replace with correct image path
+          backgroundSize: 'cover',
+          backgroundPosition: 'right center',
+          backgroundRepeat: 'no-repeat',
+          padding: '80px 0',
+        }}
+      >
+        <Container>
+          <div className="row align-items-center">
+            {/* Left Content */}
+            <div className="col-md-6">
+              <p className="text-uppercase text-muted mb-2" style={{ letterSpacing: '1px' }}>
+                PEPS CATEGORIES
+              </p>
+              <h2 className="fw-bold mb-0" style={{ fontSize: '2.8rem', color: '#76a68b' }}>
+                Navigate
+              </h2>
+              <h2 className="fw-bold mb-3" style={{ fontSize: '2.8rem' }}>
+                Through our Collection
+              </h2>
+              <p style={{ fontSize: '1.1rem', color: '#ccc', maxWidth: '480px' }}>
+                Discover wallpapers that capture every mood and style. From modern chic to timeless elegance, find your perfect match. Also browse our stunning range of kids designs.
+              </p>
+              <Button
+                variant="danger"
+                className="rounded-pill mt-4 px-4 py-2"
+                style={{
+                  backgroundColor: '#e71c64',
+                  border: 'none',
+                  fontWeight: '500',
+                }}
+              >
+                Schedule a Free Home Visit →
+              </Button>
+            </div>
+
+            {/* Right Tags */}
+            <div className="col-md-6 d-flex flex-wrap justify-content-start mt-4 mt-md-0">
+              {[
+                'Arab Touch',
+                'Modern touch',
+                'Floral',
+                'Abstract',
+                'Natural Vibes',
+                'Nature',
+                'Sequence',
+                'Dreamscape Kids Creations',
+                'La Touche Originale',
+                'Marble',
+                'Tropical',
+                'Indian Inspiration',
+              ].map((category, idx) => (
+                <div
+                  key={idx}
+                  className="me-2 mb-3"
+                  style={{
+                    border: '1px solid white',
+                    padding: '8px 18px',
+                    borderRadius: '30px',
+                    color: '#fff',
+                    fontSize: '0.95rem',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {category}
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </div>
+
+      <section className="py-5">
+        <Container>
+          <p className="text-uppercase text-center text-muted small mb-2">Trending Now</p>
+          <h2 className="text-center fw-semibold mb-5">Our exclusive kids designs</h2>
+
+          <Row className="g-4">
+            {kidsDesigns.map((item, index) => (
+              <Col xs={6} md={3} key={index}>
+                <div className="text-center">
+                  <div className="rounded shadow-sm overflow-hidden">
+                    <img
+                      src={`/img/${item.image}`}
+                      alt={item.title}
+                      className="img-fluid"
+                      style={{ objectFit: 'cover', width: '100%', height: '230px' }}
+                    />
+                  </div>
+                  <div className="mt-2">
+                    <div className="fw-medium">{item.title}</div>
+                    <div className="text-muted small">{item.price}</div>
+                  </div>
+                </div>
+              </Col>
+            ))}
+          </Row>
+
+          <div className="text-center mt-5">
+            <Button
+              variant="dark"
+              style={{
+                borderRadius: '20px',
+                padding: '10px 25px',
+                fontSize: '14px',
+                fontWeight: '500',
+              }}
+            >
+              View More
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+ <section className="py-5 bg-light">
+      <Container>
+        <Row className="align-items-center">
+          {/* Left: Image */}
+          <Col md={6} className="mb-4 mb-md-0">
+            <div className="rounded overflow-hidden shadow-sm">
+              <img
+                src="/img/about-us.jpg"
+                alt="About Us"
+                className="img-fluid w-100"
+                style={{ borderRadius: '15px', objectFit: 'cover', height: '100%' }}
+              />
+            </div>
+          </Col>
+
+          {/* Right: Text */}
+          <Col md={6}>
+            <p className="text-uppercase text-primary fw-semibold small mb-2">About Us</p>
+            <h2 className="fw-bold mb-3">
+              Creating Walls That Speak <br /> With Personality & Art
+            </h2>
+            <p className="text-muted mb-4" style={{ fontSize: '1.1rem' }}>
+              At Peps Wall, we’re passionate about transforming your spaces with high-quality, curated wallpaper collections. 
+              From dreamy kid’s rooms to bold, modern styles — every design is a reflection of personality, mood, and creativity.
+            </p>
+            <p className="text-muted mb-4" style={{ fontSize: '1rem' }}>
+              With a team of visionary designers and a commitment to top-notch materials, we turn simple walls into powerful statements.
+            </p>
+            <Button variant="dark" size="lg" className="rounded-pill px-4">
+              Learn More About Us
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+
+      {/* WhatsApp Floating Button */}
+      <a href="https://wa.me/1234567890" className="position-fixed bottom-0 end-0 m-4" style={{ zIndex: 1050 }}>
+        <FaWhatsapp size={50} color="#25D366" />
+      </a>
+    </div>
   );
 };
 

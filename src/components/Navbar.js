@@ -1,80 +1,64 @@
 // components/Navbar.js
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '../assets/logo.png';
-import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Navbar as BootstrapNavbar, Nav, NavDropdown, Button } from 'react-bootstrap';
+import { FiSearch, FiUser, FiShoppingBag } from 'react-icons/fi'; // 👈 Outline icons
+import { FaStar } from 'react-icons/fa';
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const navigate = useNavigate();
-  
-
-  // Check login status on mount
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    setIsLoggedIn(!!token);
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    setIsLoggedIn(false);
-    navigate('/login');
-  };
-
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
-      <div className="container">
-        <Link className="navbar-brand fw-bold" to="/">
-          <img src={logo} alt="Logo" height="80" width="150" />
-        </Link>
-
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul className="navbar-nav me-3">
-            {[
-              { path: '/', label: 'Home' },
-              { path: '/hotel', label: 'Hotel' },
-              { path: '/visa', label: 'Visa' },
-              { path: '/holidays', label: 'Holidays' },
-              { path: '/Umrah', label: 'UMRAH' },
-            ].map((link, i) => (
-              <li className="nav-item" key={i}>
-                <NavLink
-                  to={link.path}
-                  className={({ isActive }) =>
-                    `nav-link fw-bold ${isActive ? 'text-warning' : 'text-dark'}`
-                  }
-                >
-                  {link.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-
-          <select className="form-select w-auto me-2">
-            <option>AED</option>
-          </select>
-
-          {isLoggedIn ? (
-            <button onClick={handleLogout} className="btn btn-outline-danger">
-              Logout
-            </button>
-          ) : (
-            <Link to="/login" className="btn btn-outline-warning">
-              Login/Sign up
-            </Link>
-          )}
-        </div>
+    <>
+      {/* Top Rating Strip */}
+      <div className="bg-dark text-light text-center py-1 small">
+        <span className="me-2">
+          <img
+            src="img/google.png"
+            alt="stars"
+            style={{ height: '18px' }}
+          />
+          &nbsp; 4.9
+        </span>
+        <FaStar className="text-warning" />
+        <FaStar className="text-warning" />
+        <FaStar className="text-warning" />
+        <FaStar className="text-warning" />
+        <FaStar className="text-warning me-2" />
+        +5000 happy clients
       </div>
-    </nav>
+
+      {/* Navbar */}
+      <BootstrapNavbar expand="lg" className="bg-white shadow-sm px-4 py-3">
+        <BootstrapNavbar.Brand as={Link} to="/" className="fw-bold fs-4">
+          orient <span className="text-success">wall</span>
+        </BootstrapNavbar.Brand>
+        <BootstrapNavbar.Toggle />
+        <BootstrapNavbar.Collapse>
+          <Nav className="me-auto" style={{ marginLeft: '70px' }}>
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <NavDropdown title="Collections" id="collections-dropdown">
+              <NavDropdown.Item as={Link} to="/collections/modern">Modern</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/collections/classic">Classic</NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title="Colors" id="colors-dropdown">
+              <NavDropdown.Item as={Link} to="/colors/warm">Warm</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/colors/cool">Cool</NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link as={Link} to="/kids">Kids</Nav.Link>
+            <NavDropdown title="More" id="more-dropdown">
+              <NavDropdown.Item as={Link} to="/about">About</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/contact">Contact</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Nav className="align-items-center" style={{fontSize: '27px'}}>
+            <Nav.Link><FiSearch /></Nav.Link>
+            <Nav.Link><FiUser /></Nav.Link>
+            <Nav.Link><FiShoppingBag /></Nav.Link>
+            <Button variant="dark" className="ms-2 rounded-pill px-4 py-2">Book a free visit</Button>
+          </Nav>
+        </BootstrapNavbar.Collapse>
+      </BootstrapNavbar>
+    </>
   );
 };
 
