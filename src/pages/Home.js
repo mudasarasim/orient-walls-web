@@ -491,7 +491,7 @@ const Home = () => {
     </section>
 
       {/* WhatsApp Floating Button */}
-      <a href="https://wa.me/1234567890" className="position-fixed bottom-0 end-0 m-4" style={{ zIndex: 1050 }}>
+      <a href="https://wa.me/971524248060" target='blank' className="position-fixed bottom-0 end-0 m-4" style={{ zIndex: 1050 }}>
         <FaWhatsapp size={50} color="#25D366" />
       </a>
     </div>

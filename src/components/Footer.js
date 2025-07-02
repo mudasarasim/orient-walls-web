@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -32,14 +33,23 @@ const Footer = () => {
             </ul>
           </Col>
 
-          {/* Support Links */}
+          {/* Contact Info */}
           <Col md={2}>
-            <h6 className="text-white fw-semibold mb-3">Support</h6>
-            <ul className="list-unstyled">
-              <li><a href="#" className="text-decoration-none text-light ">FAQs</a></li>
-              <li><a href="#" className="text-decoration-none text-light">Shipping</a></li>
-              <li><a href="#" className="text-decoration-none text-light">Returns</a></li>
-              <li><a href="#" className="text-decoration-none text-light">Privacy Policy</a></li>
+            <h6 className="text-white fw-semibold mb-3">Contact Us</h6>
+            <ul className="list-unstyled text-light small">
+              <li className="mb-2">
+                <FaMapMarkerAlt className="me-2 text-danger" />
+                boulevard plaza tower 2 Office 2201 downtown Dubai, U.A.E
+              </li>
+              <li className="mb-2">
+                <FaPhoneAlt className="me-2 text-danger" />
+                +971 524248060
+              </li>
+               <li className="mb-2">
+                <FaEnvelope className="me-2 text-danger" />
+                info@orientwall.com
+              </li>
+          
             </ul>
           </Col>
 
