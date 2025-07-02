@@ -5,6 +5,7 @@ import { Container, Button, Row, Col } from 'react-bootstrap';
 import { FaWhatsapp, FaStar, FaTrophy } from 'react-icons/fa';
 import './Home.css';
 import TestimonialSection from '../components/TestimonialSection';
+import { Link } from 'react-router-dom';
 
 const kidsDesigns = [
   { title: 'Safari Art Dream', price: '125.00Dhs/sqm', image: 'k1.jpg' },
@@ -50,7 +51,7 @@ const Home = () => {
                   Schedule a Free Home Visit &nbsp; →
                 </Button>
               </a>
-              <div className="mt-3 text-white small">
+              {/* <div className="mt-3 text-white small">
                 <img src="img/google.png" alt="stars" style={{ height: '18px', marginRight: '5px' }} />
                 <FaStar className="text-warning" />
                 <FaStar className="text-warning" />
@@ -65,7 +66,7 @@ const Home = () => {
                 <a href="#" className="text-white text-decoration-underline">
                   Khaleej Times
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </Container>
@@ -111,7 +112,7 @@ const Home = () => {
         </div>
       </Container>
 
-       <section className="py-5">
+       {/* <section className="py-5">
         <Container>
           <p className="text-uppercase text-center text-muted small mb-2">Trending Now</p>
           <h2 className="text-center fw-semibold mb-5">Our exclusive kids designs</h2>
@@ -151,7 +152,7 @@ const Home = () => {
             </Button>
           </div>
         </Container>
-      </section>
+      </section> */}
 
 
       {/* Wallpaper Collections Section */}
@@ -255,7 +256,9 @@ const Home = () => {
           </div>
         </div>
       </Container>
- <section className="py-5">
+      
+      {/* Kids Section */}
+      <section className="py-5">
         <Container>
           <p className="text-uppercase text-center text-muted small mb-2">Trending Now</p>
           <h2 className="text-center fw-semibold mb-5">Our exclusive kids designs</h2>
@@ -296,10 +299,12 @@ const Home = () => {
           </div>
         </Container>
       </section>
- <section className="py-5">
+
+      {/* Office and Residential Collection */}
+      <section className="py-5">
         <Container>
           <p className="text-uppercase text-center text-muted small mb-2">Trending Now</p>
-          <h2 className="text-center fw-semibold mb-5">Our exclusive kids designs</h2>
+          <h2 className="text-center fw-semibold mb-5">Our exclusive Collection</h2>
 
           <Row className="g-4">
             {kidsDesigns.map((item, index) => (
@@ -365,17 +370,19 @@ const Home = () => {
               <p style={{ fontSize: '1.1rem', color: '#ccc', maxWidth: '480px' }}>
                 Discover wallpapers that capture every mood and style. From modern chic to timeless elegance, find your perfect match. Also browse our stunning range of kids designs.
               </p>
-              <Button
-                variant="danger"
-                className="rounded-pill mt-4 px-4 py-2"
-                style={{
-                  backgroundColor: '#e71c64',
-                  border: 'none',
-                  fontWeight: '500',
-                }}
-              >
-                Schedule a Free Home Visit →
-              </Button>
+              <a href="https://wa.me/971524248060" target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="danger"
+                  className="rounded-pill mt-4 px-4 py-2"
+                  style={{
+                    backgroundColor: '#e71c64',
+                    border: 'none',
+                    fontWeight: '500',
+                  }}
+                >
+                  Schedule a Free Home Visit →
+                </Button>
+              </a>
             </div>
 
             {/* Right Tags */}
@@ -414,10 +421,11 @@ const Home = () => {
         </Container>
       </div>
 
+      {/* Wallpaper */}
       <section className="py-5">
         <Container>
           <p className="text-uppercase text-center text-muted small mb-2">Trending Now</p>
-          <h2 className="text-center fw-semibold mb-5">Our exclusive kids designs</h2>
+          <h2 className="text-center fw-semibold mb-5">Our exclusive Wallpapers</h2>
 
           <Row className="g-4">
             {kidsDesigns.map((item, index) => (
@@ -455,8 +463,10 @@ const Home = () => {
           </div>
         </Container>
       </section>
-<TestimonialSection />
- <section className="py-5 mb-4">
+      
+      <TestimonialSection />
+    
+    <section className="py-5 mb-4">
       <Container>
         <Row className="align-items-center">
           {/* Left: Image */}
@@ -483,8 +493,14 @@ const Home = () => {
             </p>
             <p className="text-muted mb-4" style={{ fontSize: '1rem' }}>
               With a team of visionary designers and a commitment to top-notch materials, we turn simple walls into powerful statements.
-            </p>
-            <Button variant="dark" size="lg" className="rounded-pill px-4">
+            </p>  
+            <Button
+              as={Link}
+              to="/about"
+              variant="dark"
+              size="lg"
+              className="rounded-pill px-4"
+            >
               Learn More About Us
             </Button>
           </Col>
