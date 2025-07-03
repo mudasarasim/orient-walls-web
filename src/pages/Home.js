@@ -112,7 +112,7 @@ const Home = () => {
         </div>
       </Container>
 
-       {/* <section className="py-5">
+      {/* <section className="py-5">
         <Container>
           <p className="text-uppercase text-center text-muted small mb-2">Trending Now</p>
           <h2 className="text-center fw-semibold mb-5">Our exclusive kids designs</h2>
@@ -123,7 +123,7 @@ const Home = () => {
                 <div className="text-center">
                   <div className="rounded shadow-sm overflow-hidden">
                     <img
-                      src={`/img/${item.image}`}
+                      src={`  /img/${item.image}`}
                       alt={item.title}
                       className="img-fluid"
                       style={{ objectFit: 'cover', width: '100%', height: '230px' }}
