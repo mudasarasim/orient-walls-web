@@ -1,4 +1,22 @@
 /* Contact.css */
+hr{
+  background-color: black !important;
+  height: 2px;  
+}
+.back{
+  height: 260px !important;
+  background-position: center !important;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back h2{
+  color: white;
+  font-size: 44px;
+  font-weight: bold;
+}
 
 .contact-container {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -9,7 +27,6 @@
 
 /* Header Section */
 .contact-header {
-  background: url('../assets/Images/cu.jpg') center center/cover no-repeat;
   height: 60vh;
   display: flex;
   align-items: center;
