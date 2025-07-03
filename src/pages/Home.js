@@ -261,7 +261,7 @@ const Home = () => {
       <section className="py-5">
         <Container>
           <p className="text-uppercase text-center text-muted small mb-2">Trending Now</p>
-          <h2 className="text-center fw-semibold mb-5">Our exclusive kids designs</h2>
+          <h2 className="text-center fw-semibold mb-5">Our exclusive Kids Designs</h2>
 
           <Row className="g-4">
             {kidsDesigns.map((item, index) => (
@@ -286,6 +286,8 @@ const Home = () => {
 
           <div className="text-center mt-5">
             <Button
+              as={Link}
+              to='/Kids'
               variant="dark"
               style={{
                 borderRadius: '20px',
@@ -329,6 +331,8 @@ const Home = () => {
 
           <div className="text-center mt-5">
             <Button
+              as={Link}
+              to='collection'
               variant="dark"
               style={{
                 borderRadius: '20px',
@@ -450,6 +454,8 @@ const Home = () => {
 
           <div className="text-center mt-5">
             <Button
+              as={Link}
+              to="/wallpaper"
               variant="dark"
               style={{
                 borderRadius: '20px',
