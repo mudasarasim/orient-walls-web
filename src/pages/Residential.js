@@ -61,7 +61,7 @@ const Residential = () => {
       <div className="container my-5">
         <div className="row">
           {/* Sidebar Filters */}
-          <div className="col-md-3" style={{ borderRight: '1px solid #ddd' }}>
+          {/* <div className="col-md-3" style={{ borderRight: '1px solid #ddd' }}>
             <h3 className="mb-3">Filter:</h3><hr />
             <div>
               <h5>Themes</h5><hr />
@@ -86,10 +86,10 @@ const Residential = () => {
                 ))}
               </ul>
             </div>
-          </div>
+          </div> */}
 
           {/* Product Grid */}
-          <div className="col-md-9">
+          <div className="col">
             <div className="row">
               {currentProducts.map((item, i) => (
                 <div
