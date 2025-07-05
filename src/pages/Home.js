@@ -29,7 +29,7 @@ const Home = () => {
       <div
         className="hero-section text-white d-flex align-items-center"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 10%, rgba(0,0,0,0.9) 100%), url("img/bg.png")`,
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 10%, rgba(0,0,0,0.9) 100%), url("img/bg.jpg")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           minHeight: '82vh',
@@ -198,13 +198,13 @@ const Home = () => {
 
 
       {/* Wallpaper Collections Section */}
-      <Container className="my-5">
+      {/* <Container className="my-5">
         <h2 className="fw-bold text-center mb-4">Explore Our Collections</h2>
-        <div className="row">
+        <div className="row"> */}
           {/* Left Column */}
-          <div className="col-md-6">
+          {/* <div className="col-md-6"> */}
             {/* La Touche Originale */}
-            <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection1.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '420px' }}>
+            {/* <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection1.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', height: '420px' }}>
               <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0))' }}>
                 <div className="d-flex justify-content-between align-items-end">
                   <div style={{ width: '60%' }}>
@@ -216,10 +216,10 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Abstract */}
-            <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection3.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '250px' }}>
+            {/* <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection3.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '250px' }}>
               <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))' }}>
                 <div className="d-flex justify-content-between align-items-end">
                   <div style={{ width: '60%' }}>
@@ -231,10 +231,10 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Modern Touch */}
-            <div className="position-relative text-white mb-4" style={{ backgroundImage: 'url("img/collection5.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '250px' }}>
+            {/* <div className="position-relative text-white mb-4" style={{ backgroundImage: 'url("img/collection5.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '250px' }}>
               <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))' }}>
                 <div className="d-flex justify-content-between align-items-end">
                   <div style={{ width: '60%' }}>
@@ -247,12 +247,12 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Right Column */}
-          <div className="col-md-6">
+          {/* <div className="col-md-6">
             {/* Floral */}
-            <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection2.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '250px' }}>
+            {/* <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection2.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '250px' }}>
               <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))' }}>
                 <div className="d-flex justify-content-between align-items-end">
                   <div style={{ width: '60%' }}>
@@ -264,10 +264,10 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Kids Creations */}
-            <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection4.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '420px' }}>
+            {/* <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection4.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '420px' }}>   
               <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))' }}>
                 <div className="d-flex justify-content-between align-items-end">
                   <div style={{ width: '60%' }}>
@@ -279,10 +279,10 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Natural Vibes */}
-            <div className="position-relative text-white" style={{ backgroundImage: 'url("img/collection6.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '250px' }}>
+            {/* <div className="position-relative text-white" style={{ backgroundImage: 'url("img/collection6.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '250px' }}>
               <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))' }}>
                 <div className="d-flex justify-content-between align-items-end">
                   <div style={{ width: '60%' }}>
@@ -297,7 +297,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </Container>
+      </Container> */}
       
       {/* Kids Section */}
       <section className="py-5">
@@ -393,7 +393,7 @@ const Home = () => {
         style={{
           backgroundColor: '#000',
           color: '#fff',
-          backgroundImage: 'url("img/bg2.jpg")', // Replace with correct image path
+          // backgroundImage: 'url("img/bg2.jpg")', // Replace with correct image path
           backgroundSize: 'cover',
           backgroundPosition: 'right center',
           backgroundRepeat: 'no-repeat',
@@ -521,7 +521,7 @@ const Home = () => {
           <Col md={6} className="mb-4 mb-md-0">
             <div className="rounded overflow-hidden shadow-sm">
               <img
-                src="/img/bg.png"
+                src="/img/bg.jpg"
                 alt="About Us"
                 className="img-fluid w-100"
                 style={{ borderRadius: '15px', objectFit: 'cover', height: '100%' }}
