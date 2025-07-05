@@ -15,21 +15,27 @@ exports.getWallpapers = async (req, res) => {
   }
 };
 
-// Add new wallpaper
+// Add new wallpaper with multiple images
 exports.addWallpaper = async (req, res) => {
   const { title, price, category_id } = req.body;
-  const image = req.file?.filename;
+  const files = req.files;
 
-  if (!title || !price || !category_id || !image) {
-    return res.status(400).json({ error: 'All fields are required' });
+  if (!title || !price || !category_id || !files || Object.keys(files).length === 0) {
+    return res.status(400).json({ error: 'All fields and at least one image are required' });
   }
+
+  const image = files?.image?.[0]?.filename || '';
+  const image2 = files?.image2?.[0]?.filename || '';
+  const image3 = files?.image3?.[0]?.filename || '';
+  const image4 = files?.image4?.[0]?.filename || '';
 
   try {
     await db.query(
-      'INSERT INTO wallpapers (title, image, price, category_id) VALUES (?, ?, ?, ?)',
-      [title, image, price, category_id]
+      `INSERT INTO wallpapers (title, image, image2, image3, image4, price, category_id)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      [title, image, image2, image3, image4, price, category_id]
     );
-    res.json({ success: true, message: 'Wallpaper added' });
+    res.json({ success: true, message: 'Wallpaper with multiple images added' });
   } catch (err) {
     console.error('Error adding wallpaper:', err);
     res.status(500).json({ error: 'Database error' });
@@ -49,32 +55,45 @@ exports.deleteWallpaper = async (req, res) => {
   }
 };
 
-// Update wallpaper with optional image
+// Update wallpaper with optional multiple images
 exports.updateWallpaper = async (req, res) => {
   const { title, price, category_id } = req.body;
   const { id } = req.params;
-  const image = req.file?.filename;
+  const files = req.files;
 
   try {
-    let query, values;
+    let updateFields = 'title = ?, price = ?, category_id = ?';
+    let values = [title, price, category_id];
+
+    const image = files?.image?.[0]?.filename;
+    const image2 = files?.image2?.[0]?.filename;
+    const image3 = files?.image3?.[0]?.filename;
+    const image4 = files?.image4?.[0]?.filename;
 
     if (image) {
-      query = `
-        UPDATE wallpapers
-        SET title = ?, price = ?, category_id = ?, image = ?
-        WHERE id = ?
-      `;
-      values = [title, price, category_id, image, id];
-    } else {
-      query = `
-        UPDATE wallpapers
-        SET title = ?, price = ?, category_id = ?
-        WHERE id = ?
-      `;
-      values = [title, price, category_id, id];
+      updateFields += ', image = ?';
+      values.push(image);
+    }
+    if (image2) {
+      updateFields += ', image2 = ?';
+      values.push(image2);
+    }
+    if (image3) {
+      updateFields += ', image3 = ?';
+      values.push(image3);
+    }
+    if (image4) {
+      updateFields += ', image4 = ?';
+      values.push(image4);
     }
 
-    await db.query(query, values);
+    values.push(id); // WHERE clause ID
+
+    await db.query(
+      `UPDATE wallpapers SET ${updateFields} WHERE id = ?`,
+      values
+    );
+
     res.json({ success: true, message: 'Wallpaper updated successfully' });
   } catch (err) {
     console.error('Error updating wallpaper:', err);
