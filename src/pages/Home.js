@@ -73,44 +73,86 @@ const Home = () => {
       </div>
 
       {/* 4 Simple Steps Section */}
-      <Container className="text-center my-5">
-        <p className="text-uppercase text-muted small">How it works?</p>
-        <h2 className="fw-bold mb-5">4 simple steps</h2>
-        <div className="row">
-          {/* Step 1 */}
-          <div className="col-md-3">
-            <img src="img/first.png" alt="Step 1" className="img-fluid border" />
-            <div className="mt-3">
-              <div className="fw-bold mb-1"><span className="badge bg-dark rounded-circle me-2">1</span>Browse our designs and select your favorite.</div>
-              <p className="text-muted small">Or we can also customize for you.</p>
+       <Container className="text-center my-5">
+      <p className="text-uppercase text-muted small">How it works?</p>
+      <h2 className="fw-bold mb-5">4 simple steps</h2>
+
+      <div className="row">
+        {/* Step 1 */}
+        <div className="col-md-3">
+          <img
+            src="img/first.jpg"
+            alt="Step 1"
+            className="img-fluid border"
+            style={{ height: '200px', width: '100%', objectFit: 'cover' }}
+          />
+          <div className="mt-3">
+            <div className="fw-bold mb-1">
+              <span className="badge bg-dark rounded-circle me-2">1</span>
+              Browse our designs and select your favorite.
             </div>
-          </div>
-          {/* Step 2 */}
-          <div className="col-md-3">
-            <img src="img/second.png" alt="Step 2" className="img-fluid border" />
-            <div className="mt-3">
-              <div className="fw-bold mb-1"><span className="badge bg-dark rounded-circle me-2">2</span>Book a free visit in Dubai directly in few seconds</div>
-              <p className="text-muted small">Our specialist will come to take measurements & help you choose your design.</p>
-            </div>
-          </div>
-          {/* Step 3 */}
-          <div className="col-md-3">
-            <img src="img/third.png" alt="Step 3" className="img-fluid border" />
-            <div className="mt-3">
-              <div className="fw-bold mb-1"><span className="badge bg-dark rounded-circle me-2">3</span>Get your quotation and confirm order</div>
-              <p className="text-muted small">Our consultant will show our designs & share a quotation on the spot.</p>
-            </div>
-          </div>
-          {/* Step 4 */}
-          <div className="col-md-3">
-            <img src="img/fourth.png" alt="Step 4" className="img-fluid border" />
-            <div className="mt-3">
-              <div className="fw-bold mb-1"><span className="badge bg-dark rounded-circle me-2">4</span>We typically install <br /> in 3 to 7 days</div>
-              <p className="text-muted small">We take care of everything. <br /> You just enjoy.</p>
-            </div>
+            <p className="text-muted small">Or we can also customize for you.</p>
           </div>
         </div>
-      </Container>
+
+        {/* Step 2 */}
+        <div className="col-md-3">
+          <img
+            src="img/second.jpg"
+            alt="Step 2"
+            className="img-fluid border"
+            style={{ height: '200px', width: '100%', objectFit: 'cover' }}
+          />
+          <div className="mt-3">
+            <div className="fw-bold mb-1">
+              <span className="badge bg-dark rounded-circle me-2">2</span>
+              Book a free visit in Dubai directly in few seconds
+            </div>
+            <p className="text-muted small">
+              Our specialist will come to take measurements & help you choose your design.
+            </p>
+          </div>
+        </div>
+
+        {/* Step 3 */}
+        <div className="col-md-3">
+          <img
+            src="img/thirdd.png"
+            alt="Step 3"
+            className="img-fluid border"
+            style={{ height: '200px', width: '100%', objectFit: 'cover' }}
+          />
+          <div className="mt-3">
+            <div className="fw-bold mb-1">
+              <span className="badge bg-dark rounded-circle me-2">3</span>
+              Get your quotation and confirm order
+            </div>
+            <p className="text-muted small">
+              Our consultant will show our designs & share a quotation on the spot.
+            </p>
+          </div>
+        </div>
+
+        {/* Step 4 */}
+        <div className="col-md-3">
+          <img
+            src="img/fourthh.png"
+            alt="Step 4"
+            className="img-fluid border"
+            style={{ height: '200px', width: '100%', objectFit: 'cover' }}
+          />
+          <div className="mt-3">
+            <div className="fw-bold mb-1">
+              <span className="badge bg-dark rounded-circle me-2">4</span>
+              We typically install <br /> in 3 to 7 days
+            </div>
+            <p className="text-muted small">
+              We take care of everything. <br /> You just enjoy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </Container>
 
       {/* <section className="py-5">
         <Container>
@@ -362,7 +404,7 @@ const Home = () => {
           <div className="row align-items-center">
             {/* Left Content */}
             <div className="col-md-6">
-              <p className="text-uppercase text-muted mb-2" style={{ letterSpacing: '1px' }}>
+              <p className="text-uppercase mb-2" style={{ letterSpacing: '1px' }}>
                 PEPS CATEGORIES
               </p>
               <h2 className="fw-bold mb-0" style={{ fontSize: '2.8rem', color: '#76a68b' }}>
