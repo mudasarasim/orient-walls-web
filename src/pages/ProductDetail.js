@@ -16,14 +16,18 @@ const ProductDetail = () => {
   const product = state?.product;
   const related = state?.related || [];
 
-  const mainImages = product?.images?.length ? product.images : [product?.image];
+  // Collect all available images
+  const imageFields = ['image', 'image2', 'image3', 'image4'];
+  const mainImages = imageFields
+    .map(key => product?.[key])
+    .filter(img => img); // only keep non-empty
 
   return (
     <>
-      {/* Product Slider and Info */}
+      {/* Product Swiper + Info */}
       <div className="container py-5">
         <div className="row align-items-start">
-          {/* Left - Image Swiper */}
+          {/* Left - Swiper */}
           <div className="col-md-6">
             <Swiper
               modules={[Navigation, Thumbs]}
@@ -60,7 +64,7 @@ const ProductDetail = () => {
                     style={{
                       cursor: 'pointer',
                       border: '2px solid #ccc',
-                      width: '400px',
+                      width: '100%',
                       height: '90px',
                       objectFit: 'cover',
                     }}
@@ -70,7 +74,7 @@ const ProductDetail = () => {
             </Swiper>
           </div>
 
-          {/* Right - Product Details */}
+          {/* Right - Product Info */}
           <div className="col-md-6 mt-2">
             <h2>{product?.title}</h2>
             <p className="text-muted mb-2">{product?.price}</p>
@@ -82,32 +86,31 @@ const ProductDetail = () => {
             <p>Book a free visit. Our specialist will come, take precise measurements and share a quotation on the spot. He will also bring samples.</p>
 
             <a
-  href="https://wa.me/971524248060"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{ textDecoration: 'none' }}
->
-  <button
-    className="btn btn-danger btn-lg w-100 my-3 shadow-sm"
-    style={{
-      borderRadius: '50px',
-      fontWeight: '600',
-      letterSpacing: '0.5px',
-      fontSize: '1.1rem',
-      padding: '14px 24px',
-      transition: 'all 0.3s ease-in-out',
-      background: 'linear-gradient(to right, #ff512f, #dd2476)',
-      border: 'none',
-      color: 'white',
-    }}
-    onMouseOver={(e) => (e.currentTarget.style.opacity = '0.9')}
-    onMouseOut={(e) => (e.currentTarget.style.opacity = '1')}
-  >
-    <i className="fa fa-whatsapp me-2"></i>
-    Book a Home Visit
-  </button>
-</a>
-
+              href="https://wa.me/971524248060"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none' }}
+            >
+              <button
+                className="btn btn-danger btn-lg w-100 my-3 shadow-sm"
+                style={{
+                  borderRadius: '50px',
+                  fontWeight: '600',
+                  letterSpacing: '0.5px',
+                  fontSize: '1.1rem',
+                  padding: '14px 24px',
+                  transition: 'all 0.3s ease-in-out',
+                  background: 'linear-gradient(to right, #ff512f, #dd2476)',
+                  border: 'none',
+                  color: 'white',
+                }}
+                onMouseOver={(e) => (e.currentTarget.style.opacity = '0.9')}
+                onMouseOut={(e) => (e.currentTarget.style.opacity = '1')}
+              >
+                <i className="fa fa-whatsapp me-2"></i>
+                Book a Home Visit
+              </button>
+            </a>
 
             {/* Features */}
             <div className="d-flex justify-content-between text-center mt-4 flex-wrap">

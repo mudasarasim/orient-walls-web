@@ -8,7 +8,10 @@ const WallpaperList = () => {
     title: '',
     price: '',
     category_id: '',
-    image: null, // image file
+    image: null,
+    image2: null,
+    image3: null,
+    image4: null,
   });
   const [categories, setCategories] = useState([]);
 
@@ -35,7 +38,10 @@ const WallpaperList = () => {
       title: wp.title,
       price: wp.price,
       category_id: wp.category_id,
-      image: null, // start with no change
+      image: null,
+      image2: null,
+      image3: null,
+      image4: null,
     });
   };
 
@@ -46,18 +52,17 @@ const WallpaperList = () => {
     formData.append('price', editForm.price);
     formData.append('category_id', editForm.category_id);
 
-    if (editForm.image) {
-      formData.append('image', editForm.image);
-    }
+    if (editForm.image) formData.append('image', editForm.image);
+    if (editForm.image2) formData.append('image2', editForm.image2);
+    if (editForm.image3) formData.append('image3', editForm.image3);
+    if (editForm.image4) formData.append('image4', editForm.image4);
 
     try {
       await axios.put(
         `http://localhost:5000/api/wallpapers/${editId}`,
         formData,
         {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
+          headers: { 'Content-Type': 'multipart/form-data' },
         }
       );
       alert('Wallpaper updated');
@@ -70,10 +75,11 @@ const WallpaperList = () => {
   };
 
   const handleChange = (e) => {
-    if (e.target.name === 'image') {
-      setEditForm({ ...editForm, image: e.target.files[0] });
+    const { name, value, files } = e.target;
+    if (files) {
+      setEditForm({ ...editForm, [name]: files[0] });
     } else {
-      setEditForm({ ...editForm, [e.target.name]: e.target.value });
+      setEditForm({ ...editForm, [name]: value });
     }
   };
 
@@ -88,7 +94,7 @@ const WallpaperList = () => {
       <table className="table table-bordered">
         <thead>
           <tr>
-            <th>Image</th>
+            <th>Images</th>
             <th>Title</th>
             <th>Price</th>
             <th>Category</th>
@@ -99,20 +105,48 @@ const WallpaperList = () => {
           {wallpapers.map((wp) => (
             <tr key={wp.id}>
               <td>
-                <img
-                  src={`http://localhost:5000/uploads/${wp.image}`}
-                  alt=""
-                  width="80"
-                />
+                {[wp.image, wp.image2, wp.image3, wp.image4].map(
+                  (img, idx) =>
+                    img && (
+                      <img
+                        key={idx}
+                        src={`http://localhost:5000/uploads/${img}`}
+                        alt=""
+                        width="60"
+                        className="me-1 mb-1"
+                      />
+                    )
+                )}
                 {editId === wp.id && (
-                  <input
-                    type="file"
-                    name="image"
-                    onChange={handleChange}
-                    className="form-control mt-1"
-                  />
+                  <div className="mt-2">
+                    <input
+                      type="file"
+                      name="image"
+                      onChange={handleChange}
+                      className="form-control mb-1"
+                    />
+                    <input
+                      type="file"
+                      name="image2"
+                      onChange={handleChange}
+                      className="form-control mb-1"
+                    />
+                    <input
+                      type="file"
+                      name="image3"
+                      onChange={handleChange}
+                      className="form-control mb-1"
+                    />
+                    <input
+                      type="file"
+                      name="image4"
+                      onChange={handleChange}
+                      className="form-control"
+                    />
+                  </div>
                 )}
               </td>
+
               <td>
                 {editId === wp.id ? (
                   <input
@@ -125,6 +159,7 @@ const WallpaperList = () => {
                   wp.title
                 )}
               </td>
+
               <td>
                 {editId === wp.id ? (
                   <input
@@ -137,6 +172,7 @@ const WallpaperList = () => {
                   wp.price
                 )}
               </td>
+
               <td>
                 {editId === wp.id ? (
                   <select
@@ -155,12 +191,10 @@ const WallpaperList = () => {
                   wp.category
                 )}
               </td>
+
               <td>
                 {editId === wp.id ? (
-                  <button
-                    className="btn btn-primary btn-sm"
-                    onClick={handleUpdate}
-                  >
+                  <button className="btn btn-primary btn-sm" onClick={handleUpdate}>
                     Save
                   </button>
                 ) : (

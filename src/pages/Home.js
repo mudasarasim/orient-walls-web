@@ -1,13 +1,49 @@
-// src/pages/Home.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button, Row, Col } from 'react-bootstrap';
 import { FaWhatsapp, FaStar, FaTrophy } from 'react-icons/fa';
 import './Home.css';
 import TestimonialSection from '../components/TestimonialSection';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-const kidsDesigns = [
+const Home = () => {
+  const [kidsWallpapers, setKidsWallpapers] = useState([]);
+  const [mainWallpapers, setMainWallpapers] = useState([]);
+  const [collectionWallpapers, setCollectionWallpapers] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/wallpapers')
+      .then(res => {
+        const data = res.data;
+        setKidsWallpapers(data.filter(item => item.category === 'Kids'));
+setMainWallpapers(data.filter(item => item.category === 'Wallpaper'));
+setCollectionWallpapers(data.filter(item => item.category === 'Residential'));
+
+      })
+      .catch(err => console.error('Error fetching wallpapers:', err));
+  }, []);
+
+  const renderWallpapers = (items) =>
+    items.map((item, index) => (
+      <Col xs={6} md={3} key={index}>
+        <div className="text-center">
+          <div className="rounded shadow-sm overflow-hidden">
+            <img
+              src={`http://localhost:5000/uploads/${item.image}`}
+              alt={item.title}
+              className="img-fluid"
+              style={{ objectFit: 'cover', width: '100%', height: '230px' }}
+            />
+          </div>
+          <div className="mt-2">
+            <div className="fw-medium">{item.title}</div>
+            <div className="text-muted small">{item.price}</div>
+          </div>
+        </div>
+      </Col>
+    ));
+    const kidsDesigns = [
   { title: 'Safari Art Dream', price: '125.00Dhs/sqm', image: 'k1.jpg' },
   { title: 'Safari Landscape', price: '125.00Dhs/sqm', image: 'k2.png' },
   { title: 'Goal!', price: '125.00Dhs/sqm', image: 'k3.png' },
@@ -21,11 +57,9 @@ const kidsDesigns = [
   { title: 'Spring Castle', price: '125.00Dhs/sqm', image: 'k11.png' },
   { title: 'Whimsy Birds - Blue', price: '125.00Dhs/sqm', image: 'k12.png' },
 ];
-
-const Home = () => {
   return (
     <div>
-      {/* Hero Section */}
+       {/* Hero Section */}
       <div
         className="hero-section text-white d-flex align-items-center"
         style={{
@@ -204,7 +238,7 @@ const Home = () => {
           {/* Left Column */}
           {/* <div className="col-md-6"> */}
             {/* La Touche Originale */}
-            {/* <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection1.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', height: '420px' }}>
+            {/* <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection1.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '420px' }}>
               <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0))' }}>
                 <div className="d-flex justify-content-between align-items-end">
                   <div style={{ width: '60%' }}>
@@ -250,7 +284,7 @@ const Home = () => {
           </div> */}
 
           {/* Right Column */}
-          {/* <div className="col-md-6">
+          {/* <div className="col-md-6"> */}
             {/* Floral */}
             {/* <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection2.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '250px' }}>
               <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))' }}>
@@ -267,7 +301,7 @@ const Home = () => {
             </div> */}
 
             {/* Kids Creations */}
-            {/* <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection4.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '420px' }}>   
+            {/* <div className="mb-4 position-relative text-white" style={{ backgroundImage: 'url("img/collection4.png")', backgroundSize: 'cover', backgroundPosition: 'center', height: '420px' }}>
               <div className="p-4 h-100 d-flex flex-column justify-content-end" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))' }}>
                 <div className="d-flex justify-content-between align-items-end">
                   <div style={{ width: '60%' }}>
@@ -299,45 +333,14 @@ const Home = () => {
         </div>
       </Container> */}
       
-      {/* Kids Section */}
+      {/* Kids Designs */}
       <section className="py-5">
         <Container>
           <p className="text-uppercase text-center text-muted small mb-2">Trending Now</p>
           <h2 className="text-center fw-semibold mb-5">Our exclusive Kids Designs</h2>
-
-          <Row className="g-4">
-            {kidsDesigns.map((item, index) => (
-              <Col xs={6} md={3} key={index}>
-                <div className="text-center">
-                  <div className="rounded shadow-sm overflow-hidden">
-                    <img
-                      src={`/img/${item.image}`}
-                      alt={item.title}
-                      className="img-fluid"
-                      style={{ objectFit: 'cover', width: '100%', height: '230px' }}
-                    />
-                  </div>
-                  <div className="mt-2">
-                    <div className="fw-medium">{item.title}</div>
-                    <div className="text-muted small">{item.price}</div>
-                  </div>
-                </div>
-              </Col>
-            ))}
-          </Row>
-
+          <Row className="g-4">{renderWallpapers(kidsWallpapers.slice(0, 3))}</Row>
           <div className="text-center mt-5">
-            <Button
-              as={Link}
-              to='/Kids'
-              variant="dark"
-              style={{
-                borderRadius: '20px',
-                padding: '10px 25px',
-                fontSize: '14px',
-                fontWeight: '500',
-              }}
-            >
+            <Button as={Link} to="/Kids" variant="dark" className="rounded-pill px-4 py-2">
               View More
             </Button>
           </div>
@@ -348,52 +351,22 @@ const Home = () => {
       <section className="py-5">
         <Container>
           <p className="text-uppercase text-center text-muted small mb-2">Trending Now</p>
-          <h2 className="text-center fw-semibold mb-5">Our exclusive Collection</h2>
-
-          <Row className="g-4">
-            {kidsDesigns.map((item, index) => (
-              <Col xs={6} md={3} key={index}>
-                <div className="text-center">
-                  <div className="rounded shadow-sm overflow-hidden">
-                    <img
-                      src={`/img/${item.image}`}
-                      alt={item.title}
-                      className="img-fluid"
-                      style={{ objectFit: 'cover', width: '100%', height: '230px' }}
-                    />
-                  </div>
-                  <div className="mt-2">
-                    <div className="fw-medium">{item.title}</div>
-                    <div className="text-muted small">{item.price}</div>
-                  </div>
-                </div>
-              </Col>
-            ))}
-          </Row>
-
+          <h2 className="text-center fw-semibold mb-5">Our exclusive Residential Collections</h2>
+          <Row className="g-4">{renderWallpapers(collectionWallpapers.slice(0, 3))}</Row>
           <div className="text-center mt-5">
-            <Button
-              as={Link}
-              to='collection'
-              variant="dark"
-              style={{
-                borderRadius: '20px',
-                padding: '10px 25px',
-                fontSize: '14px',
-                fontWeight: '500',
-              }}
-            >
+            <Button as={Link} to="/Kids" variant="dark" className="rounded-pill px-4 py-2">
               View More
             </Button>
           </div>
         </Container>
       </section>
 
+
       <div
         style={{
           backgroundColor: '#000',
           color: '#fff',
-          // backgroundImage: 'url("img/bg2.jpg")', // Replace with correct image path
+          backgroundImage: 'url("img/bg2.jpg")', // Replace with correct image path
           backgroundSize: 'cover',
           backgroundPosition: 'right center',
           backgroundRepeat: 'no-repeat',
@@ -404,7 +377,7 @@ const Home = () => {
           <div className="row align-items-center">
             {/* Left Content */}
             <div className="col-md-6">
-              <p className="text-uppercase mb-2" style={{ letterSpacing: '1px' }}>
+              <p className="text-uppercase text-muted mb-2" style={{ letterSpacing: '1px' }}>
                 PEPS CATEGORIES
               </p>
               <h2 className="fw-bold mb-0" style={{ fontSize: '2.8rem', color: '#76a68b' }}>
@@ -468,44 +441,14 @@ const Home = () => {
       </div>
 
       {/* Wallpaper */}
+      {/* Main Wallpapers */}
       <section className="py-5">
         <Container>
           <p className="text-uppercase text-center text-muted small mb-2">Trending Now</p>
           <h2 className="text-center fw-semibold mb-5">Our exclusive Wallpapers</h2>
-
-          <Row className="g-4">
-            {kidsDesigns.map((item, index) => (
-              <Col xs={6} md={3} key={index}>
-                <div className="text-center">
-                  <div className="rounded shadow-sm overflow-hidden">
-                    <img
-                      src={`/img/${item.image}`}
-                      alt={item.title}
-                      className="img-fluid"
-                      style={{ objectFit: 'cover', width: '100%', height: '230px' }}
-                    />
-                  </div>
-                  <div className="mt-2">
-                    <div className="fw-medium">{item.title}</div>
-                    <div className="text-muted small">{item.price}</div>
-                  </div>
-                </div>
-              </Col>
-            ))}
-          </Row>
-
+          <Row className="g-4">{renderWallpapers(mainWallpapers.slice(0, 4))}</Row>
           <div className="text-center mt-5">
-            <Button
-              as={Link}
-              to="/wallpaper"
-              variant="dark"
-              style={{
-                borderRadius: '20px',
-                padding: '10px 25px',
-                fontSize: '14px',
-                fontWeight: '500',
-              }}
-            >
+            <Button as={Link} to="/wallpaper" variant="dark" className="rounded-pill px-4 py-2">
               View More
             </Button>
           </div>
