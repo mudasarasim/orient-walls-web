@@ -18,7 +18,8 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5001/api/contact', form);
+      await axios.post('http://localhost:5000/api/contact', form);
+
       alert('✅ Thank you for contacting us!');
       setForm({ name: '', email: '', phone: '', message: '' });
     } catch (err) {

@@ -1,31 +1,32 @@
-import React, { useState } from 'react';
-import './Contact.css';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import './Contact.css'; // Keep your styles
 import { useNavigate } from 'react-router-dom';
 
-const products = [
-  { title: 'Safari Art Dream', img: 'img/k1.jpg', price: '125.00Dhs/sqm' },
-  { title: 'Safari Landscape', img: 'img/k2.png', price: '125.00Dhs/sqm' },
-  { title: 'Goal!', img: 'img/k3.png', price: '125.00Dhs/sqm' },
-  { title: 'Teddy on clouds', img: 'img/k4.png', price: '125.00Dhs/sqm' },
-  { title: 'Wonderland', img: 'img/k5.png', price: '125.00Dhs/sqm' },
-  { title: 'Fairy Spring', img: 'img/k6.png', price: '125.00Dhs/sqm' },
-  { title: 'Safari Art Dream', img: 'img/k1.jpg', price: '125.00Dhs/sqm' },
-  { title: 'Safari Landscape', img: 'img/k2.png', price: '125.00Dhs/sqm' },
-  { title: 'Goal!', img: 'img/k3.png', price: '125.00Dhs/sqm' },
-  { title: 'Teddy on clouds', img: 'img/k4.png', price: '125.00Dhs/sqm' },
-  { title: 'Wonderland', img: 'img/k5.png', price: '125.00Dhs/sqm' },
-  { title: 'Fairy Spring', img: 'img/k6.png', price: '125.00Dhs/sqm' },
-];
-
 const Wallpaper = () => {
+  const [wallpapers, setWallpapers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 12;
+  const wallpapersPerPage = 12;
   const navigate = useNavigate();
 
-  const indexOfLast = currentPage * productsPerPage;
-  const indexOfFirst = indexOfLast - productsPerPage;
-  const currentProducts = products.slice(indexOfFirst, indexOfLast);
-  const totalPages = Math.ceil(products.length / productsPerPage);
+  useEffect(() => {
+    const fetchWallpapers = async () => {
+      try {
+        const res = await axios.get('http://localhost:5000/api/wallpapers');
+        setWallpapers(res.data);
+      } catch (err) {
+        console.error('Failed to load wallpapers:', err);
+      }
+    };
+    fetchWallpapers();
+  }, []);
+
+  const indexOfLast = currentPage * wallpapersPerPage;
+  const indexOfFirst = indexOfLast - wallpapersPerPage;
+const filteredWallpapers = wallpapers.filter((item) => item.category === 'Wallpaper');
+const currentWallpapers = filteredWallpapers.slice(indexOfFirst, indexOfLast);
+const totalPages = Math.ceil(filteredWallpapers.length / wallpapersPerPage);
+
 
   const handlePageChange = (num) => setCurrentPage(num);
 
@@ -47,7 +48,8 @@ const Wallpaper = () => {
                     color: '#fff',
                     padding: '80px 0',
                     textAlign: 'center',
-                  }}>
+                  }}
+                >
                   <h2>Wallpapers Collection</h2>
                 </div>
               </div>
@@ -59,47 +61,26 @@ const Wallpaper = () => {
       {/* Main Section */}
       <div className="container my-5">
         <div className="row">
-          {/* Sidebar Filters */}
-          {/* <div className="col-md-3" style={{ borderRight: '1px solid #ddd' }}>
-            <h3 className="mb-3">Filter:</h3><hr />
-            <div>
-              <h5>Themes</h5><hr />
-              <ul className="list-unstyled">
-                {[
-                  'Animals (113)',
-                  'Cute patterns & graffitis (81)',
-                  'Dinosaurs (12)',
-                  'Flowers (43)',
-                  'Football & Cars (18)',
-                  'Princess & rainbows (56)',
-                  'Safari, Forrest & Jungle (52)',
-                  'Sea & boats (6)',
-                  'Sky, clouds & space (85)',
-                  'World maps & travel (40)',
-                ].map((theme, idx) => (
-                  <li key={idx}>
-                    <label>
-                      <input type="checkbox" className="me-2 mb-4" /> {theme}
-                    </label>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div> */}
-
-          {/* Product Grid */}
           <div className="col">
             <div className="row">
-              {currentProducts.map((item, i) => (
+              {currentWallpapers.map((item, i) => (
                 <div
                   className="col-md-4 col-sm-6 col-6 mb-4"
-                  key={i}
-                  onClick={() => navigate('/product-detail')}
+                  key={item.id}
+                 onClick={() =>
+  navigate('/product-detail', {
+    state: {
+      product: item,
+      related: wallpapers, // ya filter karo category wise
+    }
+  })
+}
+
                   style={{ cursor: 'pointer' }}
                 >
                   <div className="card h-100">
                     <img
-                      src={item.img}
+                      src={`http://localhost:5000/uploads/${item.image}`}
                       alt={item.title}
                       className="card-img-top"
                       style={{ height: '200px', objectFit: 'cover' }}
@@ -119,12 +100,9 @@ const Wallpaper = () => {
                 {[...Array(totalPages)].map((_, i) => (
                   <li
                     key={i}
-                    className={`page-item ${
-                      currentPage === i + 1 ? 'active' : ''
-                    }`}>
-                    <button
-                      className="page-link"
-                      onClick={() => handlePageChange(i + 1)}>
+                    className={`page-item ${currentPage === i + 1 ? 'active' : ''}`}
+                  >
+                    <button className="page-link" onClick={() => handlePageChange(i + 1)}>
                       {i + 1}
                     </button>
                   </li>

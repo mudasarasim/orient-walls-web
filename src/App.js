@@ -12,6 +12,12 @@ import Residential from "./pages/Residential";
 import Wallpaper from "./pages/Wallpaper";
 import Office from "./pages/Office";
 import ProductDetail from "./pages/ProductDetail";
+import AddWallpaper from './admin/AddWallpaper';
+import WallpaperList from "./admin/WallpaperList";
+import AdminLogin from "./components/AdminLogin";
+import AdminDashboard from './pages/AdminDashboard';
+import PrivateRoute from './components/PrivateRoute';
+import AdminMessages from './pages/AdminMessages';
 
 
 function App() {
@@ -29,6 +35,23 @@ function App() {
            <Route path="/collections/office" element={<Office />} />
            <Route path="/collections/residential" element={<Residential />} />
           <Route path="/product-detail" element={<ProductDetail />} />
+<Route path="/admin/add-wallpaper" element={<AddWallpaper />} />
+<Route path="/admin" element={<AdminDashboard />} />
+<Route path="/admin/wallpapers" element={<WallpaperList />} />
+<Route path="/admin/AdminLogin" element={<AdminLogin />} />
+<Route path="/admin/messages" element={<AdminMessages />} />
+
+
+  <Route path="/admin/login" element={<AdminLogin />} />
+  <Route
+    path="/admin/dashboard"
+    element={
+      <PrivateRoute>
+        <AdminDashboard />
+      </PrivateRoute>
+    }
+  />
+
            
            
         </Routes>
