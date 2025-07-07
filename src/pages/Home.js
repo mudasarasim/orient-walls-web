@@ -17,8 +17,8 @@ const Home = () => {
       .then(res => {
         const data = res.data;
         setKidsWallpapers(data.filter(item => item.category === 'Kids'));
-setMainWallpapers(data.filter(item => item.category === 'Wallpaper'));
-setCollectionWallpapers(data.filter(item => item.category === 'Residential'));
+        setMainWallpapers(data.filter(item => item.category === 'Wallpaper'));
+        setCollectionWallpapers(data.filter(item => item.category === 'Residential'));
 
       })
       .catch(err => console.error('Error fetching wallpapers:', err));
@@ -63,7 +63,7 @@ setCollectionWallpapers(data.filter(item => item.category === 'Residential'));
       <div
         className="hero-section text-white d-flex align-items-center"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 10%, rgba(0,0,0,0.9) 100%), url("img/bg.jpg")`,
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 10%, rgba(0,0,0,0.9) 100%), url("img/bg.avif")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           minHeight: '82vh',
@@ -77,8 +77,8 @@ setCollectionWallpapers(data.filter(item => item.category === 'Residential'));
             </div>
             <div className="col-md-6 text-md-end">
               <p className="fs-5 mb-3">
-                A seamless process, stunning results: Let us <br />{' '}
-                <span style={{ textAlign: 'left' }}>elevate your interior.</span>
+                A seamless process, stunning results. <br />{' '}
+                <span style={{ textAlign: 'left' }}>Let us elevate your interior.</span>
               </p>
               <a href="https://wa.me/971524248060" target="_blank" rel="noopener noreferrer">
                 <Button variant="danger" className="rounded-pill px-5 py-2" style={{ border: '2px solid white' }}>
@@ -366,7 +366,7 @@ setCollectionWallpapers(data.filter(item => item.category === 'Residential'));
         style={{
           backgroundColor: '#000',
           color: '#fff',
-          backgroundImage: 'url("img/bg2.jpg")', // Replace with correct image path
+          // backgroundImage: 'url("img/bg2.jpg")', // Replace with correct image path
           backgroundSize: 'cover',
           backgroundPosition: 'right center',
           backgroundRepeat: 'no-repeat',
@@ -464,7 +464,7 @@ setCollectionWallpapers(data.filter(item => item.category === 'Residential'));
           <Col md={6} className="mb-4 mb-md-0">
             <div className="rounded overflow-hidden shadow-sm">
               <img
-                src="/img/bg.jpg"
+                src="/img/bg.avif"
                 alt="About Us"
                 className="img-fluid w-100"
                 style={{ borderRadius: '15px', objectFit: 'cover', height: '100%' }}
