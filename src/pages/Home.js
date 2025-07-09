@@ -6,6 +6,8 @@ import './Home.css';
 import TestimonialSection from '../components/TestimonialSection';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+/* eslint-disable no-unused-vars */
+
 
 const Home = () => {
   const [kidsWallpapers, setKidsWallpapers] = useState([]);

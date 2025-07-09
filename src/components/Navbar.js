@@ -3,8 +3,6 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { Navbar as BootstrapNavbar, Nav, NavDropdown, Button } from 'react-bootstrap';
-import { FiSearch, FiUser, FiShoppingBag } from 'react-icons/fi'; // 👈 Outline icons
-import { FaStar } from 'react-icons/fa';
 
 const Navbar = () => {
   return (

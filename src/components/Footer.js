@@ -1,6 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import { Container, Row, Col } from 'react-bootstrap';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {

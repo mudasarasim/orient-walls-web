@@ -2,9 +2,9 @@ const mysql = require('mysql2/promise');
 
 const db = mysql.createPool({
   host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'orient_database',
+  user: 'Xpertonecreative',
+  password: 'Sh@l@@n@2416#',
+  database: 'xperutxk_orient_wall',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0

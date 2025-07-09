@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Contact.css';
 
+/* eslint-disable no-unused-vars */
+
+
 const ContactUs = () => {
   const [form, setForm] = useState({
     name: '',
