@@ -12,7 +12,7 @@ const AddWallpaper = () => {
 
   // Fetch categories for dropdown
   useEffect(() => {
-    axios.get('http://localhost:5000/api/categories')
+    axios.get('https://orient-walls-backend-production.up.railway.app/api/categories')
       .then(res => setCategories(res.data))
       .catch(err => console.error('Error fetching categories:', err));
   }, []);
@@ -37,7 +37,7 @@ const AddWallpaper = () => {
     data.append('image', formData.image);
 
     try {
-      await axios.post('http://localhost:5000/api/wallpapers', data);
+      await axios.post('https://orient-walls-backend-production.up.railway.app/api/wallpapers', data);
       alert('Wallpaper added successfully!');
       setFormData({ title: '', price: '', category_id: '', image: null });
     } catch (error) {

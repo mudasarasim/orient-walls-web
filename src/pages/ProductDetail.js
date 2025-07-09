@@ -39,7 +39,7 @@ const ProductDetail = () => {
               {mainImages.map((img, idx) => (
                 <SwiperSlide key={idx}>
                   <img
-                    src={`http://localhost:5000/uploads/${img}`}
+                    src={`https://orient-walls-backend-production.up.railway.app/uploads/${img}`}
                     alt={`Product ${idx}`}
                     className="img-fluid rounded"
                     style={{ maxHeight: '450px', width: '545px', objectFit: 'cover' }}
@@ -58,7 +58,7 @@ const ProductDetail = () => {
               {mainImages.map((img, idx) => (
                 <SwiperSlide key={idx}>
                   <img
-                    src={`http://localhost:5000/uploads/${img}`}
+                    src={`https://orient-walls-backend-production.up.railway.app/uploads/${img}`}
                     alt={`Thumb ${idx}`}
                     className="img-fluid rounded"
                     style={{
@@ -222,7 +222,7 @@ const ProductDetail = () => {
                   style={{ cursor: 'pointer' }}
                 >
                   <img
-                    src={`http://localhost:5000/uploads/${item.image}`}
+                    src={`https://orient-walls-backend-production.up.railway.app/uploads/${item.image}`}
                     className="card-img-top"
                     style={{ height: '180px', objectFit: 'cover' }}
                     alt={item.title}

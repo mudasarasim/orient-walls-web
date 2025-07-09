@@ -15,7 +15,7 @@ const Home = () => {
   const [collectionWallpapers, setCollectionWallpapers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/wallpapers')
+    axios.get('https://orient-walls-backend-production.up.railway.app/api/wallpapers')
       .then(res => {
         const data = res.data;
         setKidsWallpapers(data.filter(item => item.category === 'Kids'));
@@ -32,7 +32,7 @@ const Home = () => {
         <div className="text-center">
           <div className="rounded shadow-sm overflow-hidden">
             <img
-              src={`http://localhost:5000/uploads/${item.image}`}
+              src={`https://orient-walls-backend-production.up.railway.app/uploads/${item.image}`}
               alt={item.title}
               className="img-fluid"
               style={{ objectFit: 'cover', width: '100%', height: '230px' }}

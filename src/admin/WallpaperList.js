@@ -16,18 +16,18 @@ const WallpaperList = () => {
   const [categories, setCategories] = useState([]);
 
   const fetchCategories = async () => {
-    const res = await axios.get('http://localhost:5000/api/categories');
+    const res = await axios.get('https://orient-walls-backend-production.up.railway.app/api/categories');
     setCategories(res.data);
   };
 
   const fetchWallpapers = async () => {
-    const res = await axios.get('http://localhost:5000/api/wallpapers');
+    const res = await axios.get('https://orient-walls-backend-production.up.railway.app/api/wallpapers');
     setWallpapers(res.data);
   };
 
   const handleDelete = async (id) => {
     if (window.confirm('Delete this wallpaper?')) {
-      await axios.delete(`http://localhost:5000/api/wallpapers/${id}`);
+      await axios.delete(`https://orient-walls-backend-production.up.railway.app/api/wallpapers/${id}`);
       fetchWallpapers();
     }
   };
@@ -59,7 +59,7 @@ const WallpaperList = () => {
 
     try {
       await axios.put(
-        `http://localhost:5000/api/wallpapers/${editId}`,
+        `https://orient-walls-backend-production.up.railway.app/api/wallpapers/${editId}`,
         formData,
         {
           headers: { 'Content-Type': 'multipart/form-data' },
@@ -110,7 +110,7 @@ const WallpaperList = () => {
                     img && (
                       <img
                         key={idx}
-                        src={`http://localhost:5000/uploads/${img}`}
+                        src={`https://orient-walls-backend-production.up.railway.app/uploads/${img}`}
                         alt=""
                         width="60"
                         className="me-1 mb-1"

@@ -11,7 +11,7 @@ const AdminLogin = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:5000/api/admin/login', {
+      const res = await axios.post('https://orient-walls-backend-production.up.railway.app/api/admin/login', {
         username,
         password,
       });

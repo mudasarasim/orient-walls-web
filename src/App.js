@@ -25,37 +25,37 @@ function App() {
     <Router>
       <ScrollToTop />
       <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-           <Route path="/login" element={<Login />} />
-           <Route path="/signup" element={<Signup />} />
-           <Route path="/contact" element={<Contact />} />
-           <Route path="/kids" element={<Kids />} />
-           <Route path="/wallpaper" element={<Wallpaper />} />
-           <Route path="/collections/office" element={<Office />} />
-           <Route path="/collections/residential" element={<Residential />} />
-          <Route path="/product-detail" element={<ProductDetail />} />
-<Route path="/admin/add-wallpaper" element={<AddWallpaper />} />
-<Route path="/admin" element={<AdminDashboard />} />
-<Route path="/admin/wallpapers" element={<WallpaperList />} />
-<Route path="/admin/AdminLogin" element={<AdminLogin />} />
-<Route path="/admin/messages" element={<AdminMessages />} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/kids" element={<Kids />} />
+        <Route path="/wallpaper" element={<Wallpaper />} />
+        <Route path="/collections/office" element={<Office />} />
+        <Route path="/collections/residential" element={<Residential />} />
+        <Route path="/product-detail" element={<ProductDetail />} />
+        <Route path="/admin/add-wallpaper" element={<AddWallpaper />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/wallpapers" element={<WallpaperList />} />
+        <Route path="/admin/AdminLogin" element={<AdminLogin />} />
+        <Route path="/admin/messages" element={<AdminMessages />} />
 
 
-  <Route path="/admin/login" element={<AdminLogin />} />
-  <Route
-    path="/admin/dashboard"
-    element={
-      <PrivateRoute>
-        <AdminDashboard />
-      </PrivateRoute>
-    }
-  />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <PrivateRoute>
+              <AdminDashboard />
+            </PrivateRoute>
+          }
+        />
 
-           
-           
-        </Routes>
-      <Footer/>
+
+
+      </Routes>
+      <Footer />
     </Router>
   );
 }

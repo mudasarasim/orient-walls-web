@@ -7,7 +7,7 @@ const AdminMessages = () => {
 
   const fetchMessages = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/contact');
+      const res = await axios.get('https://orient-walls-backend-production.up.railway.app/api/contact');
       setMessages(res.data);
     } catch (err) {
       console.error('Error fetching contact messages:', err);

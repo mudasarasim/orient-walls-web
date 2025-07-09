@@ -20,7 +20,7 @@ const Signup = () => {
     setSuccess('');
 
     try {
-      await axios.post('http://localhost:5001/api/auth/register', {
+      await axios.post('https://orient-walls-backend-production.up.railway.app/api/auth/register', {
         ...form,
         role: 'user'
       });

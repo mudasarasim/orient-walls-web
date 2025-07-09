@@ -12,7 +12,7 @@ const Office = () => {
   useEffect(() => {
     const fetchWallpapers = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/wallpapers');
+        const res = await axios.get('https://orient-walls-backend-production.up.railway.app/api/wallpapers');
         const officeWallpapers = res.data.filter(item => item.category === 'Office');
         setWallpapers(officeWallpapers);
       } catch (err) {
@@ -79,7 +79,7 @@ onClick={() =>
                 >
                   <div className="card h-100">
                     <img
-                      src={`http://localhost:5000/uploads/${item.image}`}
+                      src={`https://orient-walls-backend-production.up.railway.app/uploads/${item.image}`}
                       alt={item.title}
                       className="card-img-top"
                       style={{ height: '200px', objectFit: 'cover' }}
