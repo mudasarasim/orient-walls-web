@@ -181,7 +181,7 @@ const ProductDetail = () => {
               <p className="text-uppercase fw-semibold small mb-2">Orient Wall Quality</p>
               <h2 className="fw-bold mb-3">100% SUSTAINABLE</h2>
               <p className="text-muted mb-4" style={{ fontSize: '1.1rem' }}>
-                Sustainability is at the core of our operations. Peps Wall is exclusively using textured eco-friendly material. Our wallpaper also holds the highest ratings in the US & Europe, making it the safest wallpaper in the market (also kids friendly!)
+                Sustainability is at the core of our operations. Orient Wall is exclusively using textured eco-friendly material. Our wallpaper also holds the highest ratings in the US & Europe, making it the safest wallpaper in the market (also kids friendly!)
               </p>
               <Button as={Link} to="/about" variant="dark" size="lg" className="rounded-pill px-4">
                 Contact Us

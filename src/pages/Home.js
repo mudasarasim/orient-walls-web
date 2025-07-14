@@ -379,8 +379,8 @@ const Home = () => {
           <div className="row align-items-center">
             {/* Left Content */}
             <div className="col-md-6">
-              <p className="text-uppercase text-muted mb-2" style={{ letterSpacing: '1px' }}>
-                PEPS CATEGORIES
+              <p className="text-uppercase mb-2" style={{ letterSpacing: '1px' }}>
+                ORIENT CATEGORIES
               </p>
               <h2 className="fw-bold mb-0" style={{ fontSize: '2.8rem', color: '#76a68b' }}>
                 Navigate
