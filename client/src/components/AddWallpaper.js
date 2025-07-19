@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import BASE_URL from "../config"; // import base url
 
 const AddWallpaper = () => {
   const [categories, setCategories] = useState([]);
@@ -12,7 +13,7 @@ const AddWallpaper = () => {
 
   // Fetch categories for dropdown
   useEffect(() => {
-    axios.get('https://orient-walls-backend-production.up.railway.app/api/categories')
+    axios.get(`${BASE_URL}/api/categories`)
       .then(res => setCategories(res.data))
       .catch(err => console.error('Error fetching categories:', err));
   }, []);
@@ -37,7 +38,7 @@ const AddWallpaper = () => {
     data.append('image', formData.image);
 
     try {
-      await axios.post('https://orient-walls-backend-production.up.railway.app/api/wallpapers', data);
+      await axios.post(`${BASE_URL}/api/wallpapers`, data);
       alert('Wallpaper added successfully!');
       setFormData({ title: '', price: '', category_id: '', image: null });
     } catch (error) {

@@ -6,6 +6,7 @@ import './Home.css';
 import TestimonialSection from '../components/TestimonialSection';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BASE_URL from "../config"; // import base url
 /* eslint-disable no-unused-vars */
 
 
@@ -19,7 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get('https://orient-walls-backend-production.up.railway.app/api/wallpapers')
+      .get(`${BASE_URL}/api/wallpapers`)
       .then((res) => {
         const data = res.data;
         setWallpapers(data); // for use in handleClick

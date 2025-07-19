@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import BASE_URL from "../config"; // import base url
 
 const WallpaperList = () => {
   const [wallpapers, setWallpapers] = useState([]);
@@ -16,18 +17,18 @@ const WallpaperList = () => {
   const [categories, setCategories] = useState([]);
 
   const fetchCategories = async () => {
-    const res = await axios.get('https://orient-walls-backend-production.up.railway.app/api/categories');
+    const res = await axios.get(`${BASE_URL}/api/categories`);
     setCategories(res.data);
   };
 
   const fetchWallpapers = async () => {
-    const res = await axios.get('https://orient-walls-backend-production.up.railway.app/api/wallpapers');
+    const res = await axios.get(`${BASE_URL}/api/wallpapers`);
     setWallpapers(res.data);
   };
 
   const handleDelete = async (id) => {
     if (window.confirm('Delete this wallpaper?')) {
-      await axios.delete(`https://orient-walls-backend-production.up.railway.app/api/wallpapers/${id}`);
+      await axios.delete(`${BASE_URL}/api/wallpapers/${id}`);
       fetchWallpapers();
     }
   };
@@ -59,7 +60,7 @@ const WallpaperList = () => {
 
     try {
       await axios.put(
-        `https://orient-walls-backend-production.up.railway.app/api/wallpapers/${editId}`,
+        `${BASE_URL}/api/wallpapers/${editId}`,
         formData,
         {
           headers: { 'Content-Type': 'multipart/form-data' },

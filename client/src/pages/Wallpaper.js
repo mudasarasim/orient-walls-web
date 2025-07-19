@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Contact.css'; // Keep your styles
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from "../config"; // import base url
 
 const Wallpaper = () => {
   const [wallpapers, setWallpapers] = useState([]);
@@ -12,7 +13,7 @@ const Wallpaper = () => {
   useEffect(() => {
     const fetchWallpapers = async () => {
       try {
-        const res = await axios.get('https://orient-walls-backend-production.up.railway.app/api/wallpapers');
+        const res = await axios.get(`${BASE_URL}/api/wallpapers`);
         setWallpapers(res.data);
       } catch (err) {
         console.error('Failed to load wallpapers:', err);

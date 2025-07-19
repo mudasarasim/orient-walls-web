@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Contact.css';
+import BASE_URL from "../config"; // import base url
 
 /* eslint-disable no-unused-vars */
 
@@ -21,7 +22,7 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://orient-walls-backend-production.up.railway.app/api/contact', form);
+      await axios.post(`${BASE_URL}/api/contact`, form);
 
       alert('✅ Thank you for contacting us!');
       setForm({ name: '', email: '', phone: '', message: '' });

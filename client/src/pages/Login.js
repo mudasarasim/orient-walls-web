@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import bg from '../assets/bg.jpg';
 import { Link, useNavigate } from 'react-router-dom';
+import BASE_URL from "../config"; // import base url
 
 const Login = () => {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -16,7 +17,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('https://orient-walls-backend-production.up.railway.app/api/auth/login', form);
+      const res = await axios.post(`${BASE_URL}/api/auth/login`, form);
       const { token, user } = res.data;
 
       // ✅ Optionally store token

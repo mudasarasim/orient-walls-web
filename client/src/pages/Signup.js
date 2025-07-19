@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import bg from '../assets/bg.jpg';
 import { Link, useNavigate } from 'react-router-dom';
+import BASE_URL from "../config"; // import base url
 
 const Signup = () => {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
@@ -20,7 +21,7 @@ const Signup = () => {
     setSuccess('');
 
     try {
-      await axios.post('https://orient-walls-backend-production.up.railway.app/api/auth/register', {
+      await axios.post(`${BASE_URL}/api/auth/register`, {
         ...form,
         role: 'user'
       });

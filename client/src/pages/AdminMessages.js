@@ -1,13 +1,14 @@
 // pages/AdminMessages.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import BASE_URL from "../config"; // import base url
 
 const AdminMessages = () => {
   const [messages, setMessages] = useState([]);
 
   const fetchMessages = async () => {
     try {
-      const res = await axios.get('https://orient-walls-backend-production.up.railway.app/api/contact');
+      const res = await axios.get(`${BASE_URL}/api/contact`);
       setMessages(res.data);
     } catch (err) {
       console.error('Error fetching contact messages:', err);

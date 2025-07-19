@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Contact.css';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from "../config"; // import base url
 
 const Kids = () => {
   const [wallpapers, setWallpapers] = useState([]);
@@ -12,7 +13,7 @@ const Kids = () => {
   useEffect(() => {
     const fetchWallpapers = async () => {
       try {
-        const res = await axios.get('https://orient-walls-backend-production.up.railway.app/api/wallpapers');
+        const res = await axios.get(`${BASE_URL}/api/wallpapers`);
         const kidsWallpapers = res.data.filter(item => item.category === 'Kids');
         setWallpapers(kidsWallpapers);
       } catch (err) {

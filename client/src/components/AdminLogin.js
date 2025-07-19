@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from "../config"; // import base url
 
 const AdminLogin = () => {
   const [username, setUsername] = useState('');
@@ -11,7 +12,7 @@ const AdminLogin = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('https://orient-walls-backend-production.up.railway.app/api/admin/login', {
+      const res = await axios.post(`${BASE_URL}/api/admin/login`, {
         username,
         password,
       });
