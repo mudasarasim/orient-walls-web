@@ -1,10 +1,10 @@
 const mysql = require('mysql2/promise');
 
 const db = mysql.createPool({
-  host: 'localhost',
-  user: 'Xpertonecreative',
-  password: 'Sh@l@@n@2416#',
-  database: 'xperutxk_orient_wall',
+  host: 'gillbaba.com',
+  user: 'u167227426_orient_walls',
+  password: 'Orientwalls@122',
+  database: 'u167227426_orient_walls',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
@@ -22,3 +22,5 @@ const db = mysql.createPool({
 })();
 
 module.exports = db;
+
+// new changes

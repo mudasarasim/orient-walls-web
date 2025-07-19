@@ -65,14 +65,14 @@ const Office = () => {
                 <div
                   className="col-md-4 col-sm-6 col-6 mb-4"
                   key={item.id}
-onClick={() =>
-  navigate('/product-detail', {
-    state: {
-      product: item,
-      related: wallpapers, // ya filter karo category wise
-    }
-  })
-}
+                  onClick={() =>
+                    navigate('/product-detail', {
+                      state: {
+                        product: item,
+                        related: wallpapers, // ya filter karo category wise
+                      }
+                    })
+                  }
 
 
                   style={{ cursor: 'pointer' }}
@@ -87,7 +87,7 @@ onClick={() =>
                     <div className="card-body text-center">
                       <h6 className="card-title mb-1">{item.title}</h6>
                       <p className="text-muted">{item.price}</p>
-                      
+
                     </div>
                   </div>
                 </div>
