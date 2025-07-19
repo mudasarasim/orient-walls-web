@@ -111,7 +111,7 @@ const WallpaperList = () => {
                     img && (
                       <img
                         key={idx}
-                        src={`https://orient-walls-backend-production.up.railway.app/uploads/${img}`}
+                        src={`${BASE_URL}/uploads/${img}`}
                         alt=""
                         width="60"
                         className="me-1 mb-1"

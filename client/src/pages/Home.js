@@ -57,7 +57,7 @@ const Home = () => {
         >
           <div className="rounded shadow-sm overflow-hidden">
             <img
-              src={`https://orient-walls-backend-production.up.railway.app/uploads/${item.image}`}
+              src={`${BASE_URL}/uploads/${item.image}`}
               alt={item.title}
               className="img-fluid"
               style={{ objectFit: 'cover', width: '100%', height: '230px' }}

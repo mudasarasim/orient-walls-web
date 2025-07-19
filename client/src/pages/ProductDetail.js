@@ -7,6 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import './ProductDetail.css';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import BASE_URL from '../config';
 
 const ProductDetail = () => {
   const { state } = useLocation();
@@ -39,7 +40,7 @@ const ProductDetail = () => {
               {mainImages.map((img, idx) => (
                 <SwiperSlide key={idx}>
                   <img
-                    src={`https://orient-walls-backend-production.up.railway.app/uploads/${img}`}
+                    src={`${BASE_URL}/uploads/${img}`}
                     alt={`Product ${idx}`}
                     className="img-fluid rounded"
                     style={{ maxHeight: '450px', width: '545px', objectFit: 'cover' }}
@@ -58,7 +59,7 @@ const ProductDetail = () => {
               {mainImages.map((img, idx) => (
                 <SwiperSlide key={idx}>
                   <img
-                    src={`https://orient-walls-backend-production.up.railway.app/uploads/${img}`}
+                    src={`${BASE_URL}/uploads/${img}`}
                     alt={`Thumb ${idx}`}
                     className="img-fluid rounded"
                     style={{
@@ -222,7 +223,7 @@ const ProductDetail = () => {
                   style={{ cursor: 'pointer' }}
                 >
                   <img
-                    src={`https://orient-walls-backend-production.up.railway.app/uploads/${item.image}`}
+                    src={`${BASE_URL}/uploads/${item.image}`}
                     className="card-img-top"
                     style={{ height: '180px', objectFit: 'cover' }}
                     alt={item.title}

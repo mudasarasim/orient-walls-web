@@ -81,7 +81,7 @@ const totalPages = Math.ceil(filteredWallpapers.length / wallpapersPerPage);
                 >
                   <div className="card h-100">
                     <img
-                      src={`https://orient-walls-backend-production.up.railway.app/uploads/${item.image}`}
+                      src={`${BASE_URL}/uploads/${item.image}`}
                       alt={item.title}
                       className="card-img-top"
                       style={{ height: '200px', objectFit: 'cover' }}
