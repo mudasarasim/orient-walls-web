@@ -44,7 +44,7 @@ const ContactUs = () => {
                   className="col-md-12 col-sm-12 back"
                   style={{
                     background:
-                      'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("img/bg2.jpg")',
+                      'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("img/back1.png")',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     color: '#fff',
