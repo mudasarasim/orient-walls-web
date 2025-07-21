@@ -129,7 +129,7 @@ const Home = () => {
           {/* Step 1 */}
           <div className="col-md-3">
             <img
-              src="img/first.jpg"
+              src="img/1.jpeg"
               alt="Step 1"
               className="img-fluid border"
               style={{ height: '200px', width: '100%', objectFit: 'cover' }}
@@ -146,7 +146,7 @@ const Home = () => {
           {/* Step 2 */}
           <div className="col-md-3">
             <img
-              src="img/second.jpg"
+              src="img/2.jpeg"
               alt="Step 2"
               className="img-fluid border"
               style={{ height: '200px', width: '100%', objectFit: 'cover' }}
@@ -165,7 +165,7 @@ const Home = () => {
           {/* Step 3 */}
           <div className="col-md-3">
             <img
-              src="img/thirdd.png"
+              src="img/3.jpeg"
               alt="Step 3"
               className="img-fluid border"
               style={{ height: '200px', width: '100%', objectFit: 'cover' }}
@@ -184,7 +184,7 @@ const Home = () => {
           {/* Step 4 */}
           <div className="col-md-3">
             <img
-              src="img/fourthh.png"
+              src="img/4.jpeg"
               alt="Step 4"
               className="img-fluid border"
               style={{ height: '200px', width: '100%', objectFit: 'cover' }}
